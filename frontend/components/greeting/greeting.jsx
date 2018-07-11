@@ -16,7 +16,6 @@ const Greeting = ({ currentUser, logout, openModal, demoLogin }) => {
 
   const personalGreeting = () => (
     <hgroup className="header-group">
-      <h2 className="header-name">Hi, {currentUser.username}!</h2>
 
       <button className="logout-button" onClick={logout}>Log Out</button>
     </hgroup>
@@ -29,5 +28,6 @@ const Greeting = ({ currentUser, logout, openModal, demoLogin }) => {
 export default Greeting;
 
 
+// <h2 className="header-name">Hi, {currentUser.username}!</h2>
 // <Link to="/login">Login</Link>
 // <Link to="/signup">Sign up!</Link>

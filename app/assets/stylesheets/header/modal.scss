@@ -1,0 +1,83 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-form-container {
+   justify-content: center;
+   background: #D7EFEE;
+   padding: 50px;
+   align-items: center;
+   position: relative;
+ }
+
+.signup-form-container {
+   justify-content: center;
+   background: #D7EFEE;
+   padding: 50px;
+   align-items: center;
+   position: relative;
+ }
+
+.login-form {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+
+.login-input {
+  text-align: center;
+  background: white;
+  padding: 0px 5px;
+}
+
+.login-input::placeholder {
+  font-size: 14px;
+}
+
+.login-form-box {
+  // padding: 20px;
+  position: relative;
+}
+
+.form-title {
+  font-weight: 300;
+  font-size: 28px;
+  text-align: center;
+}
+
+
+
+.terms {
+
+  font-size: 15px;
+}
+
+
+.close-x {
+     position: absolute;
+     top:0;
+     right: 0;
+     font-size: 20px;
+     padding: 15px;
+     color: gray;
+     font-weight: 0;
+}
+
+.close-x:hover {
+  cursor: pointer;
+  color: black;
+}

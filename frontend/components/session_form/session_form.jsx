@@ -48,6 +48,7 @@ class SessionForm extends React.Component {
               <p className="form-subheader">
                 Create an account to write stories, follow your favorite authors and applaud those you love.
               </p>
+              <br></br>
               {this.renderErrors()}
               <div className="login-form">
                 <br></br>
@@ -56,7 +57,7 @@ class SessionForm extends React.Component {
                         value={this.state.email}
                         onChange={this.update('email')}
                         className="login-input"
-                        placeholder="sampleEmail@thisiswater.com"
+                        placeholder="email"
                       />
                 </label>
                 <br></br>
@@ -65,7 +66,7 @@ class SessionForm extends React.Component {
                         value={this.state.username}
                         onChange={this.update('username')}
                         className="login-input"
-                        placeholder="sampleUsername"
+                        placeholder="username"
                       />
                 </label>
                 <br></br>
@@ -84,6 +85,9 @@ class SessionForm extends React.Component {
             <div className="otherform">
               {this.props.otherForm}
             </div>
+            <div className="terms">
+              <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Join" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
+            </div>
           </div>
         );
       } else {
@@ -96,6 +100,7 @@ class SessionForm extends React.Component {
               <p className="form-subheader">
                 Sign in to write stories, follow your favorite authors and applaud those you love.
               </p>
+              <br></br>
               {this.renderErrors()}
               <div className="login-form">
                 <br></br>
@@ -104,7 +109,7 @@ class SessionForm extends React.Component {
                         value={this.state.email}
                         onChange={this.update('email')}
                         className="login-input"
-                        placeholder="sampleEmail@thisiswater.com"
+                        placeholder="email"
                       />
                 </label>
                 <br></br>
@@ -122,6 +127,9 @@ class SessionForm extends React.Component {
             </form>
             <div className="otherform">
               {this.props.otherForm}
+            </div>
+            <div className="terms">
+              <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Continue" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
             </div>
           </div>
         );

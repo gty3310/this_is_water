@@ -11,13 +11,15 @@ const Header = props => {
     if (!!props.currentUser) {
       return (
         <div className="header-left">
-          <p>Write a story (should link to /articles/new)</p>
+          <p>Write a story (link /articles/new)</p>
         </div>
       );
     } else {
       return (
         <div className="header-left">
-          <p>About ThisIsWater (should link to github)</p>
+          <a href="https://github.com/andrewlidong/this_is_water">
+            <p>About ThisIsWater</p>
+          </a>
         </div>
       );
     }
@@ -30,7 +32,9 @@ const Header = props => {
       <header>
         {leftHead()}
 
-        <h1 className="header-middle">ThisIsWater (should link to splash)</h1>
+        <Link to="/" className="header-middle">
+          <h1 className="header-middle-logo">ThisIsWater</h1>
+        </Link>
         <GreetingContainer></GreetingContainer>
       </header>
     </div>

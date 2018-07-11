@@ -1,0 +1,39 @@
+header {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  border: 1pt solid lightgray;
+  font-family: medium-content-sans-serif-font;
+}
+
+.header-middle{
+  position: absolute;
+  left: 45%;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.header-left {
+  font-size: 12px;
+  color: gray;
+}
+
+.login-signup {
+  font-size: 12px;
+  color: #03a87c;
+}
+
+.demo-login {
+  border:1px solid #03a87c;
+  padding: 5px 10px;
+}
+
+.logout-button {
+  font-size: 12px;
+  color: #03a87c;
+  border:1px solid #03a87c;
+  padding: 5px 10px;
+}
