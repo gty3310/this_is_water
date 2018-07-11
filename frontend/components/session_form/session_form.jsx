@@ -11,6 +11,17 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
+  }
+
+
+  demoLogin(e) {
+    this.setState({
+      email: 'guest@thisiswater.com',
+      username: 'Guest',
+      password: 'password'
+    });
+    setTimeout(() => {this.props.login(this.state).then(this.props.closeModal);}, 1000);
   }
 
   update(field) {
@@ -84,6 +95,7 @@ class SessionForm extends React.Component {
             </form>
             <div className="otherform">
               {this.props.otherForm}
+              <button className="demo-login" onClick={this.demoLogin}>Take a tour</button>
             </div>
             <div className="terms">
               <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Join" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
@@ -127,6 +139,7 @@ class SessionForm extends React.Component {
             </form>
             <div className="otherform">
               {this.props.otherForm}
+              <button className="demo-login" onClick={this.demoLogin}>Take a tour</button>
             </div>
             <div className="terms">
               <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Continue" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>

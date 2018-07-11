@@ -17,7 +17,7 @@ const Header = props => {
     } else {
       return (
         <div className="header-left">
-          <a href="https://github.com/andrewlidong/this_is_water">
+          <a href="https://github.com/andrewlidong/this_is_water" target="_blank">
             <p>About ThisIsWater</p>
           </a>
         </div>
