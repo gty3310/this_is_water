@@ -7,20 +7,23 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+
+import Modal from './modal/modal';
+import Header from './header/header';
+
+
 
 const App = () => (
   <div>
-    <header>
-      <Link to="/" className="header-link">
-        <h1>ThisIsWater</h1>
-      </Link>
-      <GreetingContainer />
-    </header>
+
+    <Header></Header>
+
+
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
@@ -29,3 +32,12 @@ const App = () => (
 );
 
 export default App;
+
+
+
+// <header>
+//   <Link to="/" className="header-link">
+//     <h1>ThisIsWater</h1>
+//   </Link>
+//   <GreetingContainer />
+// </header>

@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -38,44 +38,94 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to ThisIsWater!
-          <br/>
-          Please {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()}
-          <div className="login-form">
-            <br/>
-            <label>Email:
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <label>Username:
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+      if (this.props.formType === 'signup') {
+        return (
+          <div className="signup-form-container">
+            <div onClick={this.props.closeModal} className="close-x">&times;</div>
+            <form onSubmit={this.handleSubmit} className="login-form-box">
+              <h1 className="form-title">Join ThisIsWater</h1>
+              <br></br>
+              <p className="form-subheader">
+                Create an account to write stories, follow your favorite authors and applaud those you love.
+              </p>
+              {this.renderErrors()}
+              <div className="login-form">
+                <br></br>
+                <label>Email:
+                  <input type="text"
+                        value={this.state.email}
+                        onChange={this.update('email')}
+                        className="login-input"
+                        placeholder="sampleEmail@thisiswater.com"
+                      />
+                </label>
+                <br></br>
+                <label>Username:
+                  <input type="text"
+                        value={this.state.username}
+                        onChange={this.update('username')}
+                        className="login-input"
+                        placeholder="sampleUsername"
+                      />
+                </label>
+                <br></br>
+                <label>Password:
+                  <input type="password"
+                        value={this.state.password}
+                        onChange={this.update('password')}
+                        className="login-input"
+                        placeholder="password"
+                      />
+                </label>
+                <br></br>
+                <input className="session-submit" type="submit" value="Join" />
+              </div>
+            </form>
+            <div className="otherform">
+              {this.props.otherForm}
+            </div>
           </div>
-        </form>
-      </div>
-    );
+        );
+      } else {
+        return (
+          <div className="login-form-container">
+            <div onClick={this.props.closeModal} className="close-x">&times;</div>
+            <form onSubmit={this.handleSubmit} className="login-form-box">
+              <h1 className="form-title">Welcome back.</h1>
+              <br></br>
+              <p className="form-subheader">
+                Sign in to write stories, follow your favorite authors and applaud those you love.
+              </p>
+              {this.renderErrors()}
+              <div className="login-form">
+                <br></br>
+                <label>Email:
+                  <input type="text"
+                        value={this.state.email}
+                        onChange={this.update('email')}
+                        className="login-input"
+                        placeholder="sampleEmail@thisiswater.com"
+                      />
+                </label>
+                <br></br>
+                <label>Password:
+                  <input type="password"
+                        value={this.state.password}
+                        onChange={this.update('password')}
+                        className="login-input"
+                        placeholder="password"
+                      />
+                </label>
+                <br></br>
+                <input className="session-submit" type="submit" value="Continue" />
+              </div>
+            </form>
+            <div className="otherform">
+              {this.props.otherForm}
+            </div>
+          </div>
+        );
+      }
   }
 }
 

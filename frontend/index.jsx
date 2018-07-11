@@ -23,11 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
+  // window.store = store;
+  // window.signup = signup;
+  // window.login = login;
+  // window.logout = logout;
+
+
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}></Root>, root);
-
-  window.store = store;
-  window.signup = signup;
-  window.login = login;
-  window.logout = logout;
 });
