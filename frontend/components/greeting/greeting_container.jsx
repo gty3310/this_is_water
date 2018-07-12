@@ -3,7 +3,7 @@ import { login, logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 import { openModal } from '../../actions/modal_actions';
 
-const mapStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = ({ ui: {session}, entities: { users } }) => {
   return {
     currentUser: users[session.id]
   };

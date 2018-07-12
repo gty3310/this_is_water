@@ -52,6 +52,7 @@ class SessionForm extends React.Component {
       if (this.props.formType === 'signup') {
         return (
           <div className="signup-form-container">
+            <div className="login-form-content">
             <div onClick={this.props.closeModal} className="close-x">&times;</div>
             <form onSubmit={this.handleSubmit} className="login-form-box">
               <h1 className="form-title">Join ThisIsWater</h1>
@@ -95,10 +96,11 @@ class SessionForm extends React.Component {
             </form>
             <div className="otherform">
               {this.props.otherForm}
-              <button className="demo-login" onClick={this.demoLogin}>Take a tour</button>
             </div>
+            <button className="modal-demo-login" onClick={this.demoLogin}>Guest Login</button>
             <div className="terms">
               <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Join" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
+            </div>
             </div>
           </div>
         );
@@ -106,6 +108,7 @@ class SessionForm extends React.Component {
         return (
           <div className="login-form-container">
             <div onClick={this.props.closeModal} className="close-x">&times;</div>
+            <div className="login-form-content">
             <form onSubmit={this.handleSubmit} className="login-form-box">
               <h1 className="form-title">Welcome back.</h1>
               <br></br>
@@ -139,10 +142,11 @@ class SessionForm extends React.Component {
             </form>
             <div className="otherform">
               {this.props.otherForm}
-              <button className="demo-login" onClick={this.demoLogin}>Take a tour</button>
             </div>
+            <button className="modal-demo-login" onClick={this.demoLogin}>Guest Login</button>
             <div className="terms">
               <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Continue" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
+              </div>
             </div>
           </div>
         );

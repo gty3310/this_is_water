@@ -5,7 +5,6 @@ header {
   align-items: center;
   width: 80%;
   margin: 0 auto;
-  border: 1pt solid lightgray;
   font-family: medium-content-sans-serif-font;
 }
 
@@ -26,6 +25,13 @@ header {
   color: #03a87c;
 }
 
+.header-group {
+  display: flex;
+  font-size: 12px;
+  color: #03a87c;
+  justify-content: space-between;
+}
+
 .demo-login {
   border:1px solid #03a87c;
   padding: 5px 10px;
@@ -35,5 +41,11 @@ header {
   font-size: 12px;
   color: #03a87c;
   border:1px solid #03a87c;
+  padding: 5px 10px;
+}
+
+.profile-page {
+  font-size: 12px;
+  color: #03a87c;
   padding: 5px 10px;
 }

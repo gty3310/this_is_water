@@ -16,8 +16,12 @@ const Greeting = ({ currentUser, logout, openModal, demoLogin }) => {
 
   const personalGreeting = () => (
     <hgroup className="header-group">
-
+      <div className="profile-page">
+        <Link to={`/users/${currentUser.id}`}>Profile</Link>
+      </div>
+      
       <button className="logout-button" onClick={logout}>Log Out</button>
+
     </hgroup>
   );
 

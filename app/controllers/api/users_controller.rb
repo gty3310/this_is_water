@@ -11,7 +11,11 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    render :show
+    if @user
+      render 'api/users/profile'
+    else
+      render json: ["User doesn't exist"], status: 404
+    end
   end
 
   def create

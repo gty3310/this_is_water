@@ -11,7 +11,7 @@ const Header = props => {
     if (!!props.currentUser) {
       return (
         <div className="header-left">
-          <p>Write a story (link /articles/new)</p>
+          <Link to="/stories/new">Write a story</Link>
         </div>
       );
     } else {
@@ -33,15 +33,19 @@ const Header = props => {
         {leftHead()}
 
         <Link to="/" className="header-middle">
-          <h1 className="header-middle-logo">ThisIsWater</h1>
+          <h1 className="header-middle-logo">
+            ThisIsWater
+          </h1>
         </Link>
+
         <GreetingContainer></GreetingContainer>
       </header>
+
     </div>
   );
 };
 
-const mapStateToProps = ({session, entities: { users }}) => {
+const mapStateToProps = ({ui: {session}, entities: { users }}) => {
   return {
     currentUser: users[session.id]
   };

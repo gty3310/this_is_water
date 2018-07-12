@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
     const preloadedState = {
-      session: { id: window.currentUser.id },
+      ui: {session: { id: window.currentUser.id }},
       entities: {
         users: { [window.currentUser.id]: window.currentUser }
       }
@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  // window.store = store;
-  // window.signup = signup;
-  // window.login = login;
-  // window.logout = logout;
+  window.store = store;
+  window.signup = signup;
+  window.login = login;
+  window.logout = logout;
 
 
   const root = document.getElementById('root');

@@ -1,0 +1,28 @@
+.profile {
+  width: 80%;
+  padding: 0 25px;
+  margin: 0 auto;
+  margin-top: 40px;
+  font-family: medium-content-sans-serif-font
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.profile-picture {
+  width: 120px;
+  height: 120px;
+}
+
+.profile-name {
+  font-size: 28px;
+  color:rgba(0, 0, 0, 0.60);
+}
+
+.date-created {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+}

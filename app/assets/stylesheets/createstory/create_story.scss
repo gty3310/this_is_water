@@ -1,0 +1,89 @@
+.editor-main {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+  font-family: medium-content-sans-serif-font;
+}
+
+.story-author-info{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.story-editor-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 100%;
+  vertical-align: middle;
+  font-size: 8px;
+}
+
+.story-editor-name {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.story-editor-username:hover {
+  color: blue;
+}
+
+.story-errors-container {
+  display: flex;
+}
+
+.story-errors {
+  padding-right: 10px;
+  font-size: 12px;
+  color: red;
+  line-height: 40px;
+}
+
+
+
+.story-submit-button {
+  background: beige;
+  border :1px solid gray;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 10px;
+}
+
+.editor {
+  margin: 15px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.editor-title {
+  border: 1pt solid lightgrey;
+  padding: 10px 10px;
+  font-size: 25px;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.90);
+}
+.editor-image_url {
+  border: 1pt solid lightgrey;
+  font-size: 10px;
+  padding: 10px 10px;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.90);
+}
+.editor-video_url {
+  border: 1pt solid lightgrey;
+  font-size: 10px;
+  padding: 10px 10px;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.90);
+}
+.editor-body {
+  border: 1pt solid lightgrey;
+  padding: 10px 10px;
+  font-size: 14px;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.90);
+}
