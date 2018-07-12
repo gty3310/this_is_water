@@ -43,10 +43,6 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'factory_bot_rails'
-  gem 'guard', require: false
-  gem 'guard-livereload', require: false
-  gem 'rack-livereload'
-  gem 'rb-fsevent', require: false
 end
 
 group :development do

@@ -26,10 +26,12 @@ export const removeStory = id => {
   };
 };
 
-export const receiveErrors = errors => ({
-  type: RECEIVE_SESSION_ERRORS,
-  errors
-});
+export const receiveErrors = errors => {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors
+  };
+};
 
 export const fetchStories = () => dispatch => {
   return APIUtil.fetchStories.then(

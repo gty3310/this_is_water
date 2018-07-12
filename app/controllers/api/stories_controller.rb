@@ -32,6 +32,7 @@ class Api::StoriesController < ApplicationController
       render :show
     else
       render json: @story.errors.full_messages, status: 422
+    end
   end
 
   def destroy

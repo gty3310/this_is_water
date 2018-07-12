@@ -35,7 +35,7 @@ class StoryNew extends React.Component {
     const story = this.state;
 
     this.props.createStory({story});
-    this.errors = "Story fields cannot be empty";
+    this.errors = "Title and Body cannot be empty";
     this.render();
   }
 
@@ -70,7 +70,8 @@ class StoryNew extends React.Component {
                 <input className="story-submit-button"
                   type="submit"
                   value="Publish"
-                  onClick = {this.handleSubmit}></input>
+                  onClick = {this.handleSubmit}>
+                </input>
                 {this.renderErrors(this.errors)}
               </div>
             </div>
@@ -107,4 +108,4 @@ class StoryNew extends React.Component {
   }
 }
 
-export default withRouter(StoryNew)
+export default withRouter(StoryNew);
