@@ -1,4 +1,4 @@
-.profile {
+.profile-container {
   width: 500px;
   padding: 0 25px;
   margin: 0 auto;
@@ -12,28 +12,52 @@
   margin-bottom: 40px;
 }
 
+.profile-username {
+  font-size: 28px;
+  color:rgba(0, 0, 0, 0.60);
+}
+
 .profile-picture {
   width: 120px;
   height: 120px;
 }
 
-.profile-name {
-  font-size: 28px;
-  color:rgba(0, 0, 0, 0.60);
-}
-
-.date-created {
+.profile-joinDate {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
 }
 
-.profile-story-container {
-}
 
-.profile-update-container {
-  
-}
 
-.profile-storyUpdate-button {
-
-}
+//
+// .profile-story-container {
+//
+// }
+//
+// .profile-storyUpdate-container {
+//
+// }
+//
+// .profile-storyUpdate-button {
+//
+// }
+//
+// .profile-storyAuthor-container {
+//
+// }
+//
+// .profile-storyAuthor-avatar {
+//   font-size: 6px;
+// }
+//
+// .profile-storyAuthor-info {
+//
+// }
+//
+// .profile-storyAuthor-username {
+//
+// }
+//
+// .profile-story-date {
+//
+// }
