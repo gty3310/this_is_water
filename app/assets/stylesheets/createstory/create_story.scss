@@ -1,7 +1,7 @@
 .editor-main {
-  width: 80%;
+  width: 800px;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 0 25px;
   font-family: medium-content-sans-serif-font;
 }
 
@@ -63,27 +63,31 @@
   border: 1pt solid lightgrey;
   padding: 10px 10px;
   font-size: 25px;
-  width: 100%;
+  width: 600px;
   color: rgba(0, 0, 0, 0.90);
+  margin: 0 auto;
 }
 .editor-image_url {
   border: 1pt solid lightgrey;
   font-size: 10px;
   padding: 10px 10px;
-  width: 100%;
+  width: 600px;
   color: rgba(0, 0, 0, 0.90);
+  margin: 0 auto;
 }
 .editor-video_url {
   border: 1pt solid lightgrey;
   font-size: 10px;
   padding: 10px 10px;
-  width: 100%;
+  width: 600px;
   color: rgba(0, 0, 0, 0.90);
+  margin: 0 auto;
 }
 .editor-body {
   border: 1pt solid lightgrey;
   padding: 10px 10px;
   font-size: 14px;
-  width: 100%;
+  width: 600px;
   color: rgba(0, 0, 0, 0.90);
+  margin: 0 auto;
 }

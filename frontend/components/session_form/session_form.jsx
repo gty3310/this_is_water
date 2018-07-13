@@ -24,10 +24,10 @@ class SessionForm extends React.Component {
     this.setState({email: string}, () => {
       window.setTimeout(() => {
         this.loginGuest(emailArr, passwordArr, ++emailIdx, passwordIdx, submit);
-      }, 1);
+      }, 50);
     });
   } else {
-    if( passwordIdx === password.length) {
+    if( passwordIdx === passwordArr.length) {
       submit.click();
       return;
     }
@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
     this.setState({password: string}, () => {
       window.setTimeout(() => {
         this.loginGuest(emailArr, passwordArr, emailIdx, ++passwordIdx, submit);
-      }, 1);
+      }, 50);
     });
   }
 }
@@ -46,7 +46,7 @@ demoLoginFresh() {
   const submit = document.getElementById("session-submit-button");
   let emailIdx = 0;
   let passwordIdx = 0;
-  this.loginGuest(emailArr, passwordArr, emailIdx, j, submit);
+  this.loginGuest(emailArr, passwordArr, emailIdx, passwordIdx, submit);
 
 }
 
@@ -88,8 +88,9 @@ demoLoginFresh() {
   render() {
       if (this.props.formType === 'signup') {
         return (
-          <div className="modal-content-form-container">
+          <div className="modal-form-container">
             <div onClick={this.props.closeModal} className="close-x">&times;</div>
+          <div className="modal-content-form-container">
             <div className="login-form-content">
             <form onSubmit={this.handleSubmit} className="login-form-box">
               <h1 className="form-title">Join ThisIsWater</h1>
@@ -134,11 +135,13 @@ demoLoginFresh() {
               <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Continue" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
             </div>
           </div>
+          </div>
         );
       } else {
         return (
-          <div className="modal-content-form-container">
+          <div className="modal-form-container">
             <div onClick={this.props.closeModal} className="close-x">&times;</div>
+          <div className="modal-content-form-container">
             <div className="login-form-content">
             <form onSubmit={this.handleSubmit} className="login-form-box">
               <h1 className="form-title">Welcome back.</h1>
@@ -175,6 +178,7 @@ demoLoginFresh() {
             <div className="terms">
               <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Continue" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
             </div>
+          </div>
           </div>
         );
       }
