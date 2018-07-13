@@ -14,40 +14,39 @@ class SessionForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
 
     this.loginGuest = this.loginGuest.bind(this);
-    this.demoUser = this.demoUser.bind(this);
+    this.demoLoginFresh = this.demoLoginFresh.bind(this);
 
   }
 
-  loginGuest(login, password, i, j, button) {
-  if (i < login.length) {
-
-    let string = this.state.email + login[i];
+  loginGuest(emailArr, passwordArr, emailIdx, passwordIdx, submit) {
+  if (emailIdx < emailArr.length) {
+    let string = this.state.email + emailArr[emailIdx];
     this.setState({email: string}, () => {
       window.setTimeout(() => {
-        this.loginGuest(login, password, ++i, j, button);
-      }, 75);
+        this.loginGuest(emailArr, passwordArr, ++emailIdx, passwordIdx, submit);
+      }, 1);
     });
   } else {
-    if( j === password.length) {
-      button.click();
+    if( passwordIdx === password.length) {
+      submit.click();
       return;
     }
-    let string = this.state.password + password[j];
+    let string = this.state.password + passwordArr[passwordIdx];
     this.setState({password: string}, () => {
       window.setTimeout(() => {
-        this.loginGuest(login, password, i, ++j, button);
-      }, 75);
+        this.loginGuest(emailArr, passwordArr, emailIdx, ++passwordIdx, submit);
+      }, 1);
     });
   }
 }
 
-demoUser() {
-  const login = "guest@thisiswater.com";
-  const password = "password";
-  const button = document.getElementById("session-submit-button");
-  let i = 0;
-  let j = 0;
-  this.loginGuest(login, password, i, j, button);
+demoLoginFresh() {
+  const emailArr = "guest@thisiswater.com";
+  const passwordArr = "password";
+  const submit = document.getElementById("session-submit-button");
+  let emailIdx = 0;
+  let passwordIdx = 0;
+  this.loginGuest(emailArr, passwordArr, emailIdx, j, submit);
 
 }
 
@@ -171,7 +170,7 @@ demoUser() {
             <div className="otherform">
               {this.props.otherForm}
             </div>
-            <button className="modal-demo-login" onClick={this.demoUser}>Guest Login</button>
+            <button className="modal-demo-login" onClick={this.demoLoginFresh}>Guest Login</button>
             </div>
             <div className="terms">
               <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Continue" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
