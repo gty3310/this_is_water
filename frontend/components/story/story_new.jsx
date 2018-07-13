@@ -14,9 +14,7 @@ class StoryNew extends React.Component {
     };
     this.errors= "";
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
   }
-
 
   update(field) {
     if (this.state.title !== "" &&

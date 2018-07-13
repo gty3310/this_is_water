@@ -3,7 +3,7 @@ import * as APIUtil from '../util/story_api_util';
 export const RECEIVE_STORIES = 'RECEIVE_STORIES';
 export const RECEIVE_STORY = 'RECEIVE_STORY';
 export const REMOVE_STORY = 'REMOVE_STORY';
-export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const RECEIVE_STORY_ERRORS = 'RECEIVE_STORY_ERRORS';
 
 export const receiveStories = stories => {
   return {
@@ -28,7 +28,7 @@ export const removeStory = id => {
 
 export const receiveErrors = errors => {
   return {
-    type: RECEIVE_SESSION_ERRORS,
+    type: RECEIVE_STORY_ERRORS,
     errors
   };
 };
