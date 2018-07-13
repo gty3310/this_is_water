@@ -12,7 +12,45 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+
+    this.loginGuest = this.loginGuest.bind(this);
+    this.demoUser = this.demoUser.bind(this);
+
   }
+
+  loginGuest(login, password, i, j, button) {
+  if (i < login.length) {
+
+    let string = this.state.email + login[i];
+    this.setState({email: string}, () => {
+      window.setTimeout(() => {
+        this.loginGuest(login, password, ++i, j, button);
+      }, 75);
+    });
+  } else {
+    if( j === password.length) {
+      button.click();
+      return;
+    }
+    let string = this.state.password + password[j];
+    this.setState({password: string}, () => {
+      window.setTimeout(() => {
+        this.loginGuest(login, password, i, ++j, button);
+      }, 75);
+    });
+  }
+}
+
+demoUser() {
+  const login = "guest@thisiswater.com";
+  const password = "password";
+  const button = document.getElementById("session-submit-button");
+  let i = 0;
+  let j = 0;
+  this.loginGuest(login, password, i, j, button);
+
+}
+
 
 
   demoLogin(e) {
@@ -51,9 +89,9 @@ class SessionForm extends React.Component {
   render() {
       if (this.props.formType === 'signup') {
         return (
-          <div className="signup-form-container">
-            <div className="login-form-content">
+          <div className="modal-content-form-container">
             <div onClick={this.props.closeModal} className="close-x">&times;</div>
+            <div className="login-form-content">
             <form onSubmit={this.handleSubmit} className="login-form-box">
               <h1 className="form-title">Join ThisIsWater</h1>
               <br></br>
@@ -64,49 +102,43 @@ class SessionForm extends React.Component {
               {this.renderErrors()}
               <div className="login-form">
                 <br></br>
-                <label>Email:
                   <input type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
                         className="login-input"
                         placeholder="email"
                       />
-                </label>
                 <br></br>
-                <label>Username:
                   <input type="text"
                         value={this.state.username}
                         onChange={this.update('username')}
                         className="login-input"
                         placeholder="username"
                       />
-                </label>
                 <br></br>
-                <label>Password:
                   <input type="password"
                         value={this.state.password}
                         onChange={this.update('password')}
                         className="login-input"
                         placeholder="password"
                       />
-                </label>
                 <br></br>
-                <input className="session-submit" type="submit" value="Join" />
+                <input id="session-submit-button" className="session-submit" type="submit" value="Join" />
               </div>
             </form>
             <div className="otherform">
               {this.props.otherForm}
             </div>
             <button className="modal-demo-login" onClick={this.demoLogin}>Guest Login</button>
-            <div className="terms">
-              <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Join" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
             </div>
+            <div className="terms">
+              <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Continue" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
             </div>
           </div>
         );
       } else {
         return (
-          <div className="login-form-container">
+          <div className="modal-content-form-container">
             <div onClick={this.props.closeModal} className="close-x">&times;</div>
             <div className="login-form-content">
             <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -119,34 +151,30 @@ class SessionForm extends React.Component {
               {this.renderErrors()}
               <div className="login-form">
                 <br></br>
-                <label>Email:
                   <input type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
                         className="login-input"
                         placeholder="email"
                       />
-                </label>
                 <br></br>
-                <label>Password:
                   <input type="password"
                         value={this.state.password}
                         onChange={this.update('password')}
                         className="login-input"
                         placeholder="password"
                       />
-                </label>
                 <br></br>
-                <input className="session-submit" type="submit" value="Continue" />
+                <input id="session-submit-button" className="session-submit" type="submit" value="Continue" />
               </div>
             </form>
             <div className="otherform">
               {this.props.otherForm}
             </div>
-            <button className="modal-demo-login" onClick={this.demoLogin}>Guest Login</button>
+            <button className="modal-demo-login" onClick={this.demoUser}>Guest Login</button>
+            </div>
             <div className="terms">
               <p>To make ThisIsWater work, we log user data and share it with service providers.  Click "Continue" above to accept ThisIsWater's Terms of Service & Privacy Policy</p>
-              </div>
             </div>
           </div>
         );

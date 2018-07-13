@@ -6,6 +6,8 @@ header {
   width: 80%;
   margin: 0 auto;
   font-family: medium-content-sans-serif-font;
+  padding-bottom: 10px;
+  padding-top: 5px;
 }
 
 .header-middle{
@@ -35,16 +37,18 @@ header {
 .demo-login {
   border:1px solid #03a87c;
   padding: 5px 10px;
+  border-radius: 4px;
 }
 
 .logout-button {
   font-size: 12px;
-  color: #03a87c;
-  border:1px solid #03a87c;
   padding: 5px 10px;
 }
 
 .profile-page {
+  color: #03a87c;
+  border:1px solid #03a87c;
+  border-radius: 4px;
   font-size: 12px;
   color: #03a87c;
   padding: 5px 10px;

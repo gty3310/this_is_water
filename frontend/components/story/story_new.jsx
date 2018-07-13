@@ -34,7 +34,12 @@ class StoryNew extends React.Component {
   handleSubmit(e) {
     const story = this.state;
 
-    this.props.createStory({story});
+    this.props.createStory({story}).then(
+      story => {
+        console.log(story);
+        this.props.history.push(`/stories/${story.id}`);
+      }
+    );
     this.errors = "Title and Body cannot be empty";
     this.render();
   }
