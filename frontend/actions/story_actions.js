@@ -48,20 +48,20 @@ export const fetchStory = id => dispatch => {
 export const createStory = formData => dispatch => {
   return APIUtil.createStory(formData).then(
     story => dispatch(receiveStory(story)),
-    err => dispatch(receiveErrors(err))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
 export const updateStory = (formData, id) => dispatch => {
   return APIUtil.updateStory(formData, id).then(
     story => dispatch(receiveStory(story)),
-    err => dispatch(receiveErrors(err))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
 export const deleteStory = id => dispatch => {
   return APIUtil.deleteStory(id).then(
     story => dispatch(removeStory(id)),
-    err => dispatch(receiveErrors(err))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };

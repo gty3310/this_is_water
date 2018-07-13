@@ -27,16 +27,15 @@ export const receiveErrors = errors => {
 export const signup = user => dispatch => {
   return APIUtil.signup(user).then(
     user => dispatch(receiveCurrentUser(user)),
-    err => dispatch(receiveErrors(err.responseJSON))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
 export const login = user => dispatch => {
   return APIUtil.login(user).then(
     user => dispatch(receiveCurrentUser(user)),
-    err => {
-
-      return (dispatch(receiveErrors(err.responseJSON)));
+    errors => {
+      return (dispatch(receiveErrors(errors.responseJSON)));
     }
 
   );
