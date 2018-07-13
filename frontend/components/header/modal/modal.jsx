@@ -1,6 +1,8 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+
+import { closeModal } from '../../../actions/modal_actions';
+
 import LogInFormContainer from '../session_form/login_form_container';
 import SignUpFormContainer from '../session_form/signup_form_container';
 

@@ -16,7 +16,6 @@ import StoryShowContainer from './story/story_show_container';
 import StoryNewContainer from './story/story_new_container';
 import StoryUpdateContainer from './story/story_update_container';
 
-import Modal from './modal/modal';
 import Header from './header/header';
 
 
@@ -38,15 +37,4 @@ const App = () => (
   </div>
 );
 
-// <Route exact path="/users/:id" component={UserShowContainer} />
 export default App;
-
-// <Redirect to="/" />
-
-
-// <header>
-//   <Link to="/" className="header-link">
-//     <h1>ThisIsWater</h1>
-//   </Link>
-//   <GreetingContainer />
-// </header>

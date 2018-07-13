@@ -2,21 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
-import GreetingContainer from '../greeting/greeting_container';
-import Modal from '../modal/modal';
+import Modal from './modal/modal';
+import HeaderRightContainer from './header_right/header_right_container';
 
 const Header = props => {
-  const leftHead = () => {
-
+  const headerLeft = () => {
     if (!!props.currentUser) {
       return (
-        <div className="header-left">
+        <div className="headerLeft">
           <Link to="/stories/new">Write a story</Link>
         </div>
       );
     } else {
       return (
-        <div className="header-left">
+        <div className="headerLeft">
           <a href="https://github.com/andrewlidong/this_is_water" target="_blank">
             <p>About ThisIsWater</p>
           </a>
@@ -29,17 +28,17 @@ const Header = props => {
     <div>
       <Modal></Modal>
 
-      <header>
-        {leftHead()}
+      <div className="header">
+        {headerLeft()}
 
-        <Link to="/" className="header-middle">
+        <Link to="/" className="headerMiddle">
           <h1 className="header-middle-logo">
             ThisIsWater
           </h1>
         </Link>
 
-        <GreetingContainer></GreetingContainer>
-      </header>
+        <HeaderRightContainer></HeaderRightContainer>
+      </div>
 
     </div>
   );

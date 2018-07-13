@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
-import { login, logout } from '../../actions/session_actions';
-import Greeting from './greeting';
-import { openModal } from '../../actions/modal_actions';
+
+import { logout, login } from '../../../actions/session_actions';
+import { openModal } from '../../../actions/modal_actions';
+
+import HeaderRight from './header_right';
 
 const mapStateToProps = ({ ui: {session}, entities: { users } }) => {
   return {
@@ -18,4 +20,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Greeting);
+)(HeaderRight);

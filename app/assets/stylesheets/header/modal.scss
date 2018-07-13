@@ -17,7 +17,7 @@
   transform: translate(-50%, -50%);
 }
 
-.modal-form-container {
+.modal-content {
   width: 750px;
   height: 500px;
   background-color: #D7EFEE;
@@ -25,85 +25,92 @@
   background-position: 0px 100%;
   background-size: auto 290px;
   background-repeat: no-repeat;
+  z-index: 10;
 }
 
-.modal-content-form-container {
+.modal-close {
+     position: absolute;
+     top: -10px;
+     right: -50px;
+     font-size: 20px;
+     padding: 15px;
+     color: gray;
+     font-weight: 0;
+}
+
+.modal-close:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.modal-content-container {
+  top: 30px;
   position: relative;
-  top: 50px;
-  bottom: 10px;
-  margin: 0 auto;
   width: 300px;
+  margin: 0 auto;
   align-items: center;
   position: relative;
- }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-.login-form {
+.modal-form-title {
+  font-weight: 300;
+  font-size: 28px;
+  text-align: center;
+}
+
+.modal-form-subtitle {
+  text-align: center;
+}
+
+.modal-form-container {
+}
+
+.modal-form-inputs {
    display: flex;
    justify-content: center;
    flex-direction: column;
    align-items: center;
 }
 
-.login-form-content {
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.login-input {
+.modal-input {
   text-align: center;
-  width: 100%;
+  width: 90%;
   height: 25px;
   background: white;
   padding: 0px 5px;
 }
 
-.login-input::placeholder {
+.modal-input::placeholder {
   font-size: 14px;
 }
 
-.login-form-box {
-  // padding: 20px;
-  position: relative;
-}
-
-.form-title {
-  font-weight: 300;
-  font-size: 28px;
-  text-align: center;
-}
-
-.session-submit {
-  padding: 5px;
-  border-radius: 4px;
-
-}
-
-.session-submit:hover {
-  color: gray;
-}
-
-.form-subheader {
-  text-align: center;
-}
-
-.otherform {
-  margin: 0 auto;
-}
-
-.form-switch {
+.alternateForm-button {
   margin: 0 auto;
   padding: 5px 10px;
 }
 
-.form-switch:hover {
+.alternateForm-button:hover {
   color: gray;
 }
 
+.modal-inputSubmit-button {
+  padding: 5px;
+  border-radius: 4px;
+}
 
-.modal-demo-login {
+.modal-inputSubmit-button:hover {
+  color: gray;
+}
+
+.modal-altForm-button {
+  margin: 0 auto;
+}
+
+
+.modal-demo-button {
   padding: 5px 10px;
   margin: 0 auto;
   border-radius: 4px;
@@ -113,24 +120,9 @@
   color: gray;
 }
 
-.close-x {
-     position: absolute;
-     top:-10px;
-     right: -50px;
-     font-size: 20px;
-     padding: 15px;
-     color: gray;
-     font-weight: 0;
-}
-
-.close-x:hover {
-  cursor: pointer;
-  color: black;
-}
-
-.terms {
-  position: relative;
-  bottom: 5px;
+.modal-terms {
+  display: none;
   text-align: center;
   font-size: 10px;
+  position: relative;
 }

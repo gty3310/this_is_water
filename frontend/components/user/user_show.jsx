@@ -7,24 +7,26 @@ class UserShow extends React.Component {
     super(props);
 
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.loadingScreen = this.loadingScreen.bind(this);
+
+    // this.loadingScreen = this.loadingScreen.bind(this);
   }
 
+  // loadingScreen() {
+  //
+  //   setTimeout(
+  //     () => {
+  //       return <div>Content Loading</div>;
+  //     }, 5000
+  //   );
+  // }
+
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.getUser(this.props.match.params.id);
   }
 
   handleUpdate(id) {
     this.props.history.push(`/stories/update/${id}`);
-  }
-
-  loadingScreen() {
-
-    setTimeout(
-      () => {
-        return <div>Content Loading</div>;
-      }, 5000
-    );
   }
 
   render() {
@@ -35,16 +37,16 @@ class UserShow extends React.Component {
       "January", "February", "March", "April", "May", "June", "July", "August", "September", "Octtober", "November", "December"
     ];
 
+
     if (!!this.props.user && !!this.props.user.stories) {
       let id = this.props.currentUser ? this.props.currentUser.id : 0;
 
-      // Potential Update Stories
       const stories = this.props.user.stories.map((story, idx) => {
 
         const update = (storyId) => {
           if (id === story.author_id) {
             return (
-              <input className="story-update-button"
+              <input className="profile-storyUpdate-button"
                 type="submit"
                 value="Update"
                 onClick={this.handleUpdate(storyId)}></input>
@@ -59,9 +61,11 @@ class UserShow extends React.Component {
             <div className="profile-update-container">
               {update(story.id)}
               <div className="profile-profile-container">
+                
                 <Link to={`/users/${this.props.user.id}`}>
                   <img className="profile-story-img" src={this.props.user.image_url} alt="User ImageUrl"></img>
                 </Link>
+
                 <div className="profile-story-info">
                   <Link to={`/users/${this.props.user.id}`}>
                     <p className="profile-story-author-username">
@@ -73,6 +77,7 @@ class UserShow extends React.Component {
                     {monthShort[story.month - 1]} {story.day}
                   </p>
                 </div>
+
               </div>
             </div>
             <Link to={`/stories/${story.id}`}>
@@ -112,12 +117,7 @@ class UserShow extends React.Component {
       );
     } else {
       return (
-        <div>
         <div>Content Loading</div>
-        <p>
-          {this.loadingScreen()}
-        </p>
-      </div>
       );
     }
   }

@@ -1,4 +1,4 @@
-header {
+.header {
   height: 40px;
   display: flex;
   justify-content: space-between;
@@ -10,42 +10,68 @@ header {
   padding-top: 5px;
 }
 
-.header-middle{
+
+
+
+
+
+.headerLeft {
+  font-size: 12px;
+  color: gray;
+}
+
+
+
+
+
+
+
+.headerMiddle{
   position: absolute;
   left: 45%;
   font-size: 30px;
   font-weight: 700;
 }
 
-.header-left {
-  font-size: 12px;
-  color: gray;
-}
 
-.login-signup {
+
+
+
+
+
+
+.headerRight-loggedOutDisplay-container {
   font-size: 12px;
   color: #03a87c;
 }
 
-.header-group {
+.signIn-button {
+
+}
+
+.signUp-button {
+
+}
+
+.takeATour-button {
+  border:1px solid #03a87c;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.headerRight-loggedInDisplay-container {
   display: flex;
   font-size: 12px;
   color: #03a87c;
   justify-content: space-between;
 }
 
-.demo-login {
-  border:1px solid #03a87c;
-  padding: 5px 10px;
-  border-radius: 4px;
-}
-
-.logout-button {
+.logOut-button {
   font-size: 12px;
   padding: 5px 10px;
 }
 
-.profile-page {
+.profile-button {
   color: #03a87c;
   border:1px solid #03a87c;
   border-radius: 4px;
