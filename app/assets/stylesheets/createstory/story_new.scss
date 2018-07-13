@@ -1,8 +1,15 @@
-.editor-main {
-  width: 800px;
+.editor-header {
+  width: 500px;
   margin: 0 auto;
   padding: 0 25px;
   font-family: medium-content-sans-serif-font;
+  margin-top: 10px;
+}
+
+.editor-header-content {
+  margin: 0 auto;
+  border-top: 1pt solid rgba(0,0,0, 0.2);
+  padding-top: 10px;
 }
 
 .story-author-info{
@@ -17,6 +24,7 @@
   border-radius: 100%;
   vertical-align: middle;
   font-size: 8px;
+
 }
 
 .story-editor-name {
@@ -24,10 +32,28 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 0 auto;
+}
+
+.story-editor-username {
+  font-size: 14px;
+  color:rgba(0, 0, 0, 0.90);
 }
 
 .story-editor-username:hover {
-  color: blue;
+  text-decoration: underline;
+}
+
+.story-editor-biography {
+  font-size: 12px;
+  color:rgba(0, 0, 0, 0.60);
+  padding-top: 2px;
+}
+
+.story-editor-draft-text {
+  font-size: 12px;
+  color:rgba(0, 0, 0, 0.60);
+  padding-top: 2px;
 }
 
 .story-errors-container {
@@ -45,11 +71,13 @@
 
 .story-submit-button {
   background: beige;
-  border :1px solid gray;
   cursor: pointer;
   padding: 5px 10px;
   margin: 10px;
+  border-radius: 4px;
 }
+
+
 
 .editor {
   margin: 15px;
@@ -60,34 +88,33 @@
 }
 
 .editor-title {
-  border: 1pt solid lightgrey;
-  padding: 10px 10px;
   font-size: 25px;
-  width: 600px;
+  font-weight: 700;
+  width: 100%;
   color: rgba(0, 0, 0, 0.90);
   margin: 0 auto;
+  margin-bottom: 10px;
 }
-.editor-image_url {
-  border: 1pt solid lightgrey;
-  font-size: 10px;
-  padding: 10px 10px;
-  width: 600px;
-  color: rgba(0, 0, 0, 0.90);
-  margin: 0 auto;
-}
-.editor-video_url {
-  border: 1pt solid lightgrey;
-  font-size: 10px;
-  padding: 10px 10px;
-  width: 600px;
-  color: rgba(0, 0, 0, 0.90);
-  margin: 0 auto;
-}
+// .editor-image_url {
+//   border: 1pt solid lightgrey;
+//   font-size: 10px;
+//   padding: 10px 10px;
+//   width: 600px;
+//   color: rgba(0, 0, 0, 0.90);
+//   margin: 0 auto;
+// }
+// .editor-video_url {
+//   border: 1pt solid lightgrey;
+//   font-size: 10px;
+//   padding: 10px 10px;
+//   width: 600px;
+//   color: rgba(0, 0, 0, 0.90);
+//   margin: 0 auto;
+// }
+
 .editor-body {
-  border: 1pt solid lightgrey;
-  padding: 10px 10px;
   font-size: 14px;
-  width: 600px;
+  width: 100%;
   color: rgba(0, 0, 0, 0.90);
   margin: 0 auto;
 }

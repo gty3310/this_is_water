@@ -56,13 +56,13 @@ class StoryNew extends React.Component {
     if (!!this.props.currentUser){
       const user = this.props.currentUser;
         return (
-          <div className="editor-main">
-            <div className="story-submit-container">
+          <div className="editor-header">
+            <div className="editor-header-content">
               <div className="story-author-info">
+
                 <Link to={`/users/${user.id}`}>
                   <img className="story-editor-img" src={user.image_url} alt="User Image Url"></img>
                 </Link>
-
                 <div className="story-editor-name">
                   <Link to={`/users/${user.id}`}>
                     <p className="story-editor-username">{user.username}</p>
@@ -87,16 +87,6 @@ class StoryNew extends React.Component {
                 value={this.state.title}
                 onChange={this.update('title')}
                 placeholder='Title'></input>
-              <input className="editor-image_url"
-                type="text"
-                value={this.state.image_url}
-                onChange={this.update('image_url')}
-                placeholder='Image-url'></input>
-              <input className="editor-video_url"
-                type="text"
-                value={this.state.video_url}
-                onChange={this.update('video_url')}
-                placeholder='Video-url'></input>
               <input className="editor-body"
                 type="text"
                 value={this.state.body}
@@ -114,3 +104,17 @@ class StoryNew extends React.Component {
 }
 
 export default withRouter(StoryNew);
+
+
+
+
+// <input className="editor-image_url"
+//   type="text"
+//   value={this.state.image_url}
+//   onChange={this.update('image_url')}
+//   placeholder='Image-url'></input>
+// <input className="editor-video_url"
+//   type="text"
+//   value={this.state.video_url}
+//   onChange={this.update('video_url')}
+//   placeholder='Video-url'></input>
