@@ -63,9 +63,6 @@ class SessionForm extends React.Component {
     setTimeout(() => {this.props.login(this.state).then(this.props.closeModal);}, 1000);
   }
 
-
-
-
   componentWillUnmount() {
     this.props.clearErrors();
   }

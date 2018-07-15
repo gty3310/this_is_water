@@ -1,4 +1,6 @@
 class Api::StoriesController < ApplicationController
+  before_action :ensure_logged_in, only: [:create, :update, :destroy]
+
   def index
     @stories = Story.all
     render :index
@@ -27,19 +29,26 @@ class Api::StoriesController < ApplicationController
   end
 
   def update
-    @story = Story.find(params[:id])
-    if @story.update(story_params)
-      render :show
+    @story = current_user.authored_stories(id: params[:id])
+    if @story
+      if @story.update(story_params)
+        render :show
+      else
+        render json: @story.errors.full_messages, status: 422
+      end
     else
-      render json: @story.errors.full_messages, status: 422
+      render json: ["Can't update this story"], status: 401
     end
   end
 
   def destroy
-    @story.find(params[:id])
-    @story.destroy
-    @stories = Story.all
-    render :index
+    @story = current_user.authored_stories(id: params[:id])
+    if @story
+      @story.destroy
+      render :show
+    else
+      render json: ["Can't destroy this story"], status: 401
+    end
   end
 
   private

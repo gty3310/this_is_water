@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  has_many :stories,
+  has_many :authored_stories,
   primary_key: :id,
   foreign_key: :author_id,
   class_name: :Story

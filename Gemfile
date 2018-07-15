@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'faker'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -55,7 +57,6 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
   gem 'launchy'
   gem 'shoulda-matchers'
   # Adds support for Capybara system testing and selenium driver
