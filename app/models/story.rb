@@ -2,25 +2,40 @@
 #
 # Table name: stories
 #
-#  id           :bigint(8)        not null, primary key
-#  title        :string           not null
-#  body         :text             not null
-#  author_id    :integer          not null
-#  image_url    :string
-#  video_url    :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  publish_date :datetime         not null
+#  id         :bigint(8)        not null, primary key
+#  title      :string           not null
+#  body       :text             not null
+#  author_id  :integer          not null
+#  image_url  :string
+#  video_url  :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  header     :string
 #
 
 class Story < ApplicationRecord
+
+  # Validations
+
   validates :title, :body, :author_id, presence: true
   validates :title, uniqueness: true
+
+  # Associations
 
   belongs_to :author,
   primary_key: :id,
   foreign_key: :author_id,
   class_name: :User
+
+  has_many :responses,
+  primary_key: :id,
+  foreign_key: :story_id,
+  class_name: :Response
+
+  has_many :claps,
+  as: :clappable
+
+  # Methods
 
   def read_time
     word_count = self.body.split(' ').length
@@ -30,5 +45,24 @@ class Story < ApplicationRecord
     else
       "#{minutes} minute read"
     end
+  end
+
+  def date
+    monthShort = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ]
+
+    monthLong= [
+      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    ]
+
+    year = self.created_at.year
+    month = monthShort[self.created_at.month]
+    day = self.created_at.day
+    return "#{month} #{day}"
+  end
+
+  def total_claps
+    self.claps.sum(:quantity)
   end
 end

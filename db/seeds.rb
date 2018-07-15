@@ -63,6 +63,36 @@ robbie.save!
 
 story1 = Story.new({
   title: "Heterogenous consumer choice and dynamic pricing on perishable goods",
-  body: "#{Faker::}",
+  header: "UChicago Dissertation related to dynamic pricing"
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + 'r/n' + Faker::Lorem.paragraph_by_chars(300) + 'r/n' Faker::Lorem.paragraph_by_chars(300)}",
   author_id: robbie.id,
   })
+
+story1.save!
+
+story2 = Story.new({
+  title: "Antman and the Wasp",
+  header: "The Marvel Cinematic Universe is losing its sting"
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + 'r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: nick.id,
+  })
+
+story2.save!
+
+story3 = Story.new({
+  title: "Sorry To Bother You",
+  header: "The most socially conscious film since The Matrix"
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + 'r/n' + Faker::Lorem.paragraph_by_chars(300) + 'r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: nick.id,
+  })
+
+story3.save!
+
+story4 = Story.new({
+  title: "6 Days of Fasting",
+  header: "The most challenging week of my life"
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + 'r/n' + Faker::Lorem.paragraph_by_chars(300) + 'r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: julia.id,
+  })
+
+story4.save!

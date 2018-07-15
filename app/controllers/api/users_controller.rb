@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  # before_action :require_logged_in
+  before_action :require_logged_in, only: [:show, :update]
 
   def index
     @users = User.all

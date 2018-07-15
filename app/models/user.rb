@@ -14,26 +14,54 @@
 #
 
 class User < ApplicationRecord
-  after_initialize :ensure_session_token
 
+  # Validations
 
-  # VALIDATIONS
   validates :username, :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
+  # validates :biography, length: { maximum: 160 }
+
+  after_initialize :ensure_session_token
+
+  #Associations
 
   has_many :authored_stories,
   primary_key: :id,
   foreign_key: :author_id,
   class_name: :Story
 
-  #ASSOCIATIONS
+  has_many :responses,
+  primary_key: :id,
+  foreign_key: :responder_id,
+  class_name: :Response
 
-  #GETTERS/SETTERS
+  has_many :users_following,
+  primary_key: :id,
+  foreign_key: :followed_id,
+  class_name: :Follow
+
+  has_many :user_follows,
+  primary_key: :id,
+  foreign_key: :follower_id,
+  class_name: :Follow
+
+  has_many :followers,
+  through: :users_following,
+  source: :follower
+
+  has_many :followed_users,
+  through: :user_follows,
+  source: :followed
+
+  has_many :followed_user_stories,
+  through: :followed_users,
+  source: :authored_stories
+
+
+  #Auth methods
 
   attr_reader :password
-
-  #METHODS
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

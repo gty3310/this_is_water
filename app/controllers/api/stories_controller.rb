@@ -1,8 +1,10 @@
 class Api::StoriesController < ApplicationController
-  before_action :ensure_logged_in, only: [:create, :update, :destroy]
+
+  before_action :ensure_logged_in, only: [:create, :create, :update, :destroy]
 
   def index
-    @stories = Story.all
+    @stories = Story.all.includes(:author)
+
     render :index
   end
 
