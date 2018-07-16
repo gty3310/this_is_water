@@ -1,6 +1,6 @@
 json.story do
-  json.extract! story, :id, :title, :header, :body, :author_id, :image_url, :video_url
-  json.readTime story.read_time
+  json.extract! @story, :id, :title, :header, :body, :author_id, :image_url, :video_url
+  json.readTime @story.read_time
   json.date @story.date
   json.responses_array @story.responses.map {|response| response.id}
   json.totalClaps @story.totalClaps

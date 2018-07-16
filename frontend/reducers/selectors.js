@@ -5,7 +5,8 @@ export const currentUser = state => {
 };
 
 export const responsesForStory = (state, arr) => {
-  arr.map(responseId => state.entities.responses[responseId]);
+  debugger
+  return arr.map(responseId => state.entities.responses[responseId]);
 };
 
 export const responder = (state, response) => {

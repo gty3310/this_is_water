@@ -1,6 +1,6 @@
 class Api::StoriesController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:create, :create, :update, :destroy]
+  before_action :require_logged_in, only: [:create, :create, :update, :destroy]
 
   def index
 
@@ -62,6 +62,6 @@ class Api::StoriesController < ApplicationController
   private
 
   def story_params
-    params.require(:story).permit(:title, :header, :body, :image_url, :video_url)
+    params.permit(:title, :header, :body, :image_url, :video_url)
   end
 end

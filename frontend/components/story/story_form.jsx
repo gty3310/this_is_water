@@ -20,12 +20,9 @@ class StoryForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('story[title]', this.state.title);
-    formData.append('story[header]', this.state.header);
-    formData.append('story[body]', this.state.body);
+    const story = Object.assign({}, this.state);
 
-    this.props.submitAction(formData).then(
+    this.props.submitAction(story).then(
       success => this.props.history.push('/'),
       failure => console.log(failure)
     );
@@ -42,7 +39,7 @@ class StoryForm extends React.Component {
           <img className="header-image" src={currentUser.image_url} alt="current_user_avatar"></img>
 
           <div className="story-form-author-info">
-            <p className="story-form-author-username">(currentUser.username)</p>
+            <p className="story-form-author-username">{currentUser.username}</p>
             <p className="story-form-author-draft">Draft</p>
           </div>
 
@@ -50,31 +47,31 @@ class StoryForm extends React.Component {
 
         <form className="story-form" onSubmit={this.handleSubmit}>
 
-          <input className="story-form-title">
+          <input className="story-form-title"
             type="text"
             value={this.state.title}
             onChange={this.update('title')}
             placeholder="Title"
-          </input>
+          ></input>
 
-          <input className="story-form-header">
+          <input className="story-form-header"
             type="text"
             value={this.state.header}
             onChange={this.update('header')}
             placeholder="Header"
-          </input>
+          ></input>
 
-          <input className="story-form-body">
+          <input className="story-form-body"
             type="text"
             value={this.state.body}
             onChange={this.update('body')}
             placeholder="Body"
-          </input>
+          ></input>
 
-          <input className="story-form-button">
+          <input className="story-form-button"
             type="submit"
             value={this.props.type}
-          </input>
+          ></input>
 
         </form>
 
@@ -84,3 +81,33 @@ class StoryForm extends React.Component {
 }
 
 export default withRouter(StoryForm);
+
+// <form className="story-form" onSubmit={this.handleSubmit}>
+//
+//   <input className="story-form-title">
+//     type="text"
+//     value={this.state.title}
+//     onChange={this.update('title')}
+//     placeholder="Title"
+//   </input>
+//
+//   <input className="story-form-header">
+//     type="text"
+//     value={this.state.header}
+//     onChange={this.update('header')}
+//     placeholder="Header"
+//   </input>
+//
+//   <input className="story-form-body">
+//     type="text"
+//     value={this.state.body}
+//     onChange={this.update('body')}
+//     placeholder="Body"
+//   </input>
+//
+//   <input className="story-form-button">
+//     type="submit"
+//     value={this.props.type}
+//   </input>
+//
+// </form>

@@ -12,11 +12,11 @@ class ShowStory extends React.Component {
 
   render() {
 
-    if (!this.props.story || !this.props.author) {
+    if (!this.props.story || !this.props.author || !this.props.responses) {
       return <div></div>;
     }
 
-    const sections = story.body.split('r/n').map((section, idx) => {
+    const sections = story.body.split('\n').map((section, idx) => {
       return <p key={idx} className="story-body">{section}</p>;
     });
 
