@@ -38,13 +38,14 @@ class ShowStory extends React.Component {
         </h3>
 
         {sections}
+        
+        <ClapButton
+          content={this.props.story}
+          type="Story"></ClapButton>
 
         <StoryResponses
           story={this.props.story}></StoryResponses>
 
-        <ClapButton
-          content={this.props.story}
-          type="Story"></ClapButton>
       </div>
     );
   }

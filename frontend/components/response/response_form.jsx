@@ -7,7 +7,7 @@ class ResponseForm extends React.Component {
     // const story = this.props.story || {};
     this.state={
       // possibly should be passing in ownParams
-      storyId: props.story.id,
+      story_id: props.story.id,
       body: ''
     };
 
@@ -39,7 +39,7 @@ class ResponseForm extends React.Component {
 
   render() {
     return (
-      <form className="response-form">
+      <form className="response-form" onSubmit={this.handleSubmit}>
         <div className="response-form-author-container">
           <img className="response-author-image" src={this.props.currentUser.image_url} alt="currentUseravatar"></img>
           <h1>{this.props.currentUser.username}</h1>

@@ -49,7 +49,7 @@ class Response < ApplicationRecord
   end
 
   def totalClaps
-    self.claps.sum(:quantity)
+    self.claps.sum(:clap_count)
   end
 
 end

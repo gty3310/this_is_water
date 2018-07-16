@@ -6,6 +6,7 @@ class Api::ResponsesController < ApplicationController
     if @response.save
       render :show
     else
+      debugger
       render json: @response.errors.full_messages, status: 422
     end
   end

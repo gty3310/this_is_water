@@ -12,7 +12,7 @@ json.user do
 end
 
 json.responses do
-  @story.responses.each do |comment|
+  @story.responses.each do |response|
     json.set! response.id do
       json.extract! response, :id, :body, :story_id, :responder_id
       json.date response.date

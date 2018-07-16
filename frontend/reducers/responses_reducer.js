@@ -16,6 +16,10 @@ export default (state = {}, action) => {
       merge(newState, action.payload.responses);
       return newState;
     case RECEIVE_CLAPS:
+      if (action.payload.story) {
+        return newState;
+      }
+
       if (action.payload.response) {
         newState[action.payload.response.id].totalClaps = action.payload.response.totalClaps;
         return newState;

@@ -19,6 +19,10 @@ export default (state = {}, action) => {
       newState[action.payload.story.id].responses_array = action.payload.story.responses_array;
       return newState;
     case RECEIVE_CLAPS:
+      if (action.payload.response) {
+        return newState;
+      }
+
       if (action.payload.story.id) {
         newState[action.payload.story.id].totalClaps = action.payload.story.totalClaps;
       }
