@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { signup } from '../../../actions/session_actions';
 import SessionForm from './session_form';
 import { openModal, closeModal } from '../../../actions/modal_actions';
-import { receiveErrors, login } from '../../../actions/session_actions';
+import { receiveSessionErrors, login } from '../../../actions/session_actions';
 
 
 const mapStateToProps = ({ ui: {errors} }) => {
@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
       <button className="alternateForm-button" onClick={() => dispatch(openModal('login'))}>Sign in instead.</button>
     ),
     closeModal: () => dispatch(closeModal()),
-    clearErrors: () => dispatch(receiveErrors([]))
+    clearErrors: () => dispatch(receiveSessionErrors([]))
   };
 };
 

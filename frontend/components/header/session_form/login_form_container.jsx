@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { receiveErrors,login } from '../../../actions/session_actions';
+import { receiveSessionErrors,login } from '../../../actions/session_actions';
 import { openModal, closeModal } from '../../../actions/modal_actions';
 
 import SessionForm from './session_form';
@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => {
       <button className="alternateForm-button" onClick={() => dispatch(openModal('signup'))}>Create an account instead.</button>
     ),
     closeModal: () => dispatch(closeModal()),
-    clearErrors: () => dispatch(receiveErrors([]))
+    clearErrors: () => dispatch(receiveSessionErrors([]))
   };
 };
 

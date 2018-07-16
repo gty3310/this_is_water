@@ -1,7 +1,7 @@
 import * as APIUtil from '../util/user_api_util';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
-export const RECEIVE_USERS = 'RECEIVE_USERS';
+export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 
 export const receiveUser = user => {
   return {
@@ -10,10 +10,10 @@ export const receiveUser = user => {
   };
 };
 
-export const receiveUsers = users => {
+export const receiveAllUsers = payload => {
   return {
-    type: RECEIVE_USERS,
-    users
+    type: RECEIVE_ALL_USERS,
+    payload
   };
 };
 
@@ -23,8 +23,8 @@ export const fetchUser = id => dispatch => {
   );
 };
 
-export const fetchUsers = () => dispatch => {
+export const fetchAllUsers = () => dispatch => {
   return APIUtil.fetchAllUsers.then(
-    users => dispatch(receiveAllUsers(users))
+    payload => dispatch(receiveAllUsers(payload))
   );
 };

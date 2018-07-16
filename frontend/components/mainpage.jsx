@@ -1,23 +1,24 @@
 import React from 'react';
-import { Route, Swtich } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-import StoryNewContainer from './story/story_new_container';
-import StoryShowContainer from './story/story_show_container';
-import Homepage from './homepage';
+import CreateStoryContainer from './story/create_story_container';
+import ShowStoryContainer from './story/show_story_container';
+import HomePage from './homepage';
 
 const MainPage = () => {
   return (
     <div className="mainpage">
       <Switch>
-        <ProtectedRoute path='/stories/new' component={StoryNewContainer}></ProtectedRoute>
-        <ProtectedRoute path='/stories/:id' component={StoryShowContainer}></ProtectedRoute>
+        <ProtectedRoute path='/stories/new' component={CreateStoryContainer}></ProtectedRoute>
+        <ProtectedRoute path='/stories/:id' component={ShowStoryContainer}></ProtectedRoute>
         <Route path='/' component={HomePage}></Route>
       </Switch>
     </div>
   );
 };
 
+export default MainPage
 
 
 
@@ -33,7 +34,7 @@ const MainPage = () => {
 
 // <Switch>
 //   <Route component={UserShowContainer} path="/users/:id" />
-//   <Route exact path="/stories/new" component={StoryNewContainer} />
+//   <Route exact path="/stories/new" component={CreateStoryContainer} />
 //   <Route exact path="/stories/:id" component={StoryShowContainer} />
 //   <Route exact path="/stories/update/:id" component={StoryUpdateContainer} />
 // </Switch>

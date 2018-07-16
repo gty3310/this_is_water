@@ -48,7 +48,7 @@ class Response < ApplicationRecord
     return "#{month} #{day}"
   end
 
-  def total_claps
+  def totalClaps
     self.claps.sum(:quantity)
   end
 

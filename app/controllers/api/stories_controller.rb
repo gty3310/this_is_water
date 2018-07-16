@@ -3,6 +3,8 @@ class Api::StoriesController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :create, :update, :destroy]
 
   def index
+
+
     @stories = Story.all.includes(:author)
 
     render :index
@@ -11,7 +13,6 @@ class Api::StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
     @story.author_id = current_user.id
-    @story.publish_date = Date.new
 
     if @story.save
       render :show
@@ -23,6 +24,9 @@ class Api::StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
 
+    is_followed = current_user.followed_users.where(id: @story.author_id)
+    @currentUserFollows= !is_followed.empty?
+
     if @story
       render :show
     else
@@ -32,6 +36,7 @@ class Api::StoriesController < ApplicationController
 
   def update
     @story = current_user.authored_stories(id: params[:id])
+
     if @story
       if @story.update(story_params)
         render :show
@@ -45,6 +50,7 @@ class Api::StoriesController < ApplicationController
 
   def destroy
     @story = current_user.authored_stories(id: params[:id])
+
     if @story
       @story.destroy
       render :show
@@ -56,6 +62,6 @@ class Api::StoriesController < ApplicationController
   private
 
   def story_params
-    params.require(:story).permit(:title, :body, :image_url, :video_url)
+    params.require(:story).permit(:title, :header, :body, :image_url, :video_url)
   end
 end

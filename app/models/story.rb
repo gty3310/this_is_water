@@ -62,7 +62,7 @@ class Story < ApplicationRecord
     return "#{month} #{day}"
   end
 
-  def total_claps
-    self.claps.sum(:quantity)
+  def totalClaps
+    self.claps.sum(:clap_count)
   end
 end

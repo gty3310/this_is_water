@@ -1,4 +1,4 @@
-export const fetchStories = () => {
+export const fetchAllStories = () => {
   return $.ajax({
     method: 'GET',
     url: '/api/stories'
@@ -12,23 +12,23 @@ export const fetchStory = id => {
   });
 };
 
-export const createStory = formData => {
+export const createStory = story => {
   return $.ajax({
     method: 'POST',
     url: 'api/stories',
-    data: formData
+    data: story
   });
 };
 
-export const updateStory = (formData, id) => {
+export const updateStory = story => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/stories/${id}`,
-    data: formData
+    url: `api/stories/${story.id}`,
+    data: story
   });
 };
 
-export const deleteStory = id => {
+export const destroyStory = id => {
   return $.ajax({
     method: 'DELETE',
     url: `api/stories/${id}`

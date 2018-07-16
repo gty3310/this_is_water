@@ -3,7 +3,7 @@ json.stories do
     json.set! story.id do
       json.extract! story, :id, :title, :header, :body, :author_id, :image_url, :video_url
       json.date story.date
-      json.read_time story.read_time
+      json.readTime story.read_time
     end
   end
 end

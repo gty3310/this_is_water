@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchAllStories } from '../actions/story_actions';
-import MainIndex from './main/main_index';
+import MainIndex from './main_content/main_index';
 
 class HomePage extends React.Component {
   componentDidMount () {

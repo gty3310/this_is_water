@@ -174,7 +174,9 @@ class SessionForm extends React.Component {
                           placeholder="password"
                         />
                   <br></br>
-                  <input id="session-submit-button" className="modal-inputSubmit-button" type="submit" value="Join" />
+                  <input id="session-submit-button" className="modal-inputSubmit-button"
+                    type="submit"
+                    value="Join" />
                 </div>
               </form>
               <div className="modal-altForm-button">

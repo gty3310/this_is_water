@@ -18,7 +18,7 @@ import MainPage from './mainpage';
 const App = () => (
   <div>
     <Header></Header>
-    <Main></Main>
+    <MainPage></MainPage>
   </div>
 );
 
