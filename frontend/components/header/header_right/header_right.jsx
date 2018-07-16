@@ -18,8 +18,8 @@ const HeaderRight = ({ currentUser, logout, openModal, demoLogin }) => {
       <button className="logOut-button" onClick={logout}>Log Out</button>
 
       <div className="profile-button">
-        <p>Profile Button</p>
-        {/*<Link to={`/users/${currentUser.id}`}>Profile</Link>*/}
+        {/*}<p>Profile Button</p>*/}
+        <Link to={`/users/${currentUser.id}`}>Profile</Link>
       </div>
 
     </div>

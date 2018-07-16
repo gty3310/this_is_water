@@ -4,6 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import CreateStoryContainer from './story/create_story_container';
 import ShowStoryContainer from './story/show_story_container';
+import UserShowContainer from './header/user/user_show_container';
 import HomePage from './homepage';
 
 const MainPage = () => {
@@ -12,6 +13,7 @@ const MainPage = () => {
       <Switch>
         <ProtectedRoute path='/stories/new' component={CreateStoryContainer}></ProtectedRoute>
         <ProtectedRoute path='/stories/:id' component={ShowStoryContainer}></ProtectedRoute>
+        <ProtectedRoute path='/users/:id' component={UserShowContainer}></ProtectedRoute>
         <Route path='/' component={HomePage}></Route>
       </Switch>
     </div>

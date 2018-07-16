@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
       responses = responsesForStory(state, story.responses_array);
     }
   }
-  // debugger
+  // 
 
   return {
     story: story,

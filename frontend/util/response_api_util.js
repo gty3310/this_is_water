@@ -1,5 +1,5 @@
 export const createResponse = response => {
-  // debugger
+  // 
   return $.ajax({
     method: 'POST',
     url: `api/stories/${response.story_id}/responses`,
