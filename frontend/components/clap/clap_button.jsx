@@ -17,15 +17,17 @@ class ClapButton extends React.Component {
   }
 
   addToCount() {
-    this.setState( { clapCount: this.state.clap_count + 1 });
+    this.setState( { clap_count: this.state.clap_count + 1 });
 
     this.handleChange();
   }
 
   handleChange() {
-    this.props.createClap(this.state).then(
-      success => this.setState( { clap_count: 0 })
-    );
+    this.props.createClap(this.state);
+
+    // .then(
+    //   success => this.setState( { clap_count: this.props.content.totalClaps })
+    // );
   }
 
   render () {
