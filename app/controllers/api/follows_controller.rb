@@ -1,8 +1,8 @@
 class Api::FollowsController < ApplicationController
   def create
     @follow = Follow.new
-    follow.followed_id = params[:id]
-    follow.follower_id = current_user.id
+    @follow.followed_id = params[:id]
+    @follow.follower_id = current_user.id
 
     @user = User.find(params[:id])
     @currentUserFollows = true

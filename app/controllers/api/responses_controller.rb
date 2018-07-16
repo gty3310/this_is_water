@@ -1,4 +1,4 @@
-def Api::ResponsesController < ApplicationController
+class Api::ResponsesController < ApplicationController
   def create
     @response = Response.new(response_params)
     @response.responder_id = current_user.id
