@@ -3,14 +3,15 @@ import { connect } from 'react-redux';
 
 import { responsesForStory } from '../../reducers/selectors';
 
-import ResponseFormContainer from './response_form';
+import ResponseFormContainer from './response_form_container';
 import ResponseIndex from './response_index';
 
 const StoryResponses = ({ responses, story }) => {
+  // debugger
   return (
     <div className="story-responses-container">
       <ResponseFormContainer
-        storyId = {story.id}></ResponseFormContainer>
+        story = {story}></ResponseFormContainer>
 
       <ResponseIndex
         responses={responses}></ResponseIndex>

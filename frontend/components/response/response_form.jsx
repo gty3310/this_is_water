@@ -4,9 +4,10 @@ import { withRouter } from 'react-router-dom';
 class ResponseForm extends React.Component {
   constructor(props) {
     super(props);
+    // const story = this.props.story || {};
     this.state={
       // possibly should be passing in ownParams
-      storyId: this.props.story.id,
+      storyId: props.story.id,
       body: ''
     };
 
@@ -14,10 +15,20 @@ class ResponseForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  update(e) {
-    this.setState(
-      {body: e.target.value}
-    );
+  componentDidMount() {
+    this.props.fetchStory(this.props.match.params.id);
+  }
+
+  update(field) {
+    // debugger
+    return (e) => {
+      this.setState({
+        [field]: e.target.value
+      });
+    };
+    // this.setState(
+    //   {body: e.target.value}
+    // );
   }
 
   handleSubmit(e) {
@@ -30,7 +41,7 @@ class ResponseForm extends React.Component {
     return (
       <form className="response-form">
         <div className="response-form-author-container">
-          <img className="response-author-image" src={this.props.currentUser.image_ur} alt="currentUseravatar"></img>
+          <img className="response-author-image" src={this.props.currentUser.image_url} alt="currentUseravatar"></img>
           <h1>{this.props.currentUser.username}</h1>
         </div>
 
@@ -41,7 +52,7 @@ class ResponseForm extends React.Component {
 
         <input className="response-form-button"
           type="submit"
-          value={Publish}></input>
+          value="Publish"></input>
       </form>
     );
   }

@@ -16,7 +16,7 @@ class ShowStory extends React.Component {
       return <div></div>;
     }
 
-    const sections = story.body.split('\n').map((section, idx) => {
+    const sections = this.props.story.body.split('\n').map((section, idx) => {
       return <p key={idx} className="story-body">{section}</p>;
     });
 
@@ -43,7 +43,7 @@ class ShowStory extends React.Component {
           story={this.props.story}></StoryResponses>
 
         <ClapButton
-          content={story}
+          content={this.props.story}
           type="Story"></ClapButton>
       </div>
     );
