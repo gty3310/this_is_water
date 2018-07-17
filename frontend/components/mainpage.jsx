@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import CreateStoryContainer from './story/create_story_container';
 import ShowStoryContainer from './story/show_story_container';
-import UserShowContainer from './header/user/user_show_container';
+import UserShowContainer from './user/user_show_container';
 import HomePage from './homepage';
 
 const MainPage = () => {

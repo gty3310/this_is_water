@@ -4,8 +4,8 @@
 }
 
 .user-item-image {
-  max-height: 50px;
-  max-width: 50px;
+  height: 50px;
+  width: 50px;
   overflow: hidden;
   margin-right: 20px;
   border-radius: 100%;
@@ -17,6 +17,12 @@
 
 .user-item-info-container {
   display: flex;
+}
+
+.user-item-author-username {
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(0,0,0,0.8);
 }
 
 .follow-button {

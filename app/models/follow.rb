@@ -14,7 +14,7 @@ class Follow < ApplicationRecord
   # Validations
 
   validates :follower_id, :followed_id, presence: true
-  validates :followed_id, uniqueness: { scope: [:follower_id], message: "should only follow one other user" }
+  # validates :followed_id, uniqueness: { scope: [:follower_id], message: "should only follow one other user" }
 
   # Associations
 

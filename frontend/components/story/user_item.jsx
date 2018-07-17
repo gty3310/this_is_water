@@ -30,10 +30,12 @@ class UserItem extends React.Component {
 
     return (
       <div className="user-item">
-        <img className="user-item-image" src={this.props.user.image_url} img="user_avatar"></img>
+        <Link  to={`/users/${this.props.user.id}`}>
+          <img className="user-item-image" src={this.props.user.image_url} alt="user_avatar"></img>
+        </Link>
         <div className="user-item-info">
           <div className="user-item-info-container">
-            <Link className="story-form-author-username" to={`/users/${this.props.user.id}`}>
+            <Link className="user-item-author-username" to={`/users/${this.props.user.id}`}>
               {this.props.user.username}
             </Link>
             <button className={followClass} onClick={this.handleFollow}>
