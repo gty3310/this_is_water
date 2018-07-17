@@ -1,0 +1,70 @@
+.response-index-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  padding-bottom: 10px;
+  border-bottom: 0.5pt solid rgba(0,0,0,0.1);
+
+}
+
+
+.response-index {
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.response-index-author-index {
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  // border-bottom: 0.5pt solid rgba(0,0,0,0.1);
+}
+
+.response-index-author-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 100%;
+  vertical-align: middle;
+  font-size: 8px;
+  overflow: hidden;
+}
+
+.response-index-author-info {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.response-index-author-username {
+  padding-left: 10px;
+  font-size: 15px;
+  color:rgba(0, 0, 0, 0.80);
+}
+
+.response-index-author-date {
+  padding-left: 10px;
+  font-size: 12px;
+  color:rgba(0, 0, 0, 0.60);
+}
+
+.response-index-body-clap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.response-index-item-body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  color: rgba(0,0,0,0.9);
+}
+
+.response-index-clap-container {
+  align-self: flex-end;
+}
+
+.story-responses-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

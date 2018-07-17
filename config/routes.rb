@@ -11,10 +11,11 @@ Rails.application.routes.draw do
       resources :responses, only: [:create, :destroy]
     end
 
+    resources :claps, only: [:create]
+
+    # resources :follows, only: [:create, :destroy]
     post '/follows/:id', to: 'follows#create'
     delete '/follows/:id', to: 'follows#destroy'
-
-    post '/claps', to: 'claps#create'
   end
 
 end

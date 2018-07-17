@@ -1,0 +1,39 @@
+.clap-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.clap-count {
+  color: #03a87c;
+  font-size: 8px;
+}
+
+.clap-button {
+  display: flex;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid #03a87c;
+  border-radius: 100%;
+
+  background-color: none;
+  background-size: cover;
+  overflow: hidden;
+
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.clap-button:hover {
+  opacity: 1;
+}
+
+.clap-button:active {
+  transform: scale(1.2);
+}
+
+.clap-total {
+  color: #03a87c;
+}

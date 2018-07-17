@@ -11,8 +11,9 @@ const MainIndexItem = ({ story, author }) => {
         <div className="item-story">
           <Link to={`/stories/${story.id}`}>
             <h1 className="item-story-title">{story.title}</h1>
-            <h1 className="item-story-header">{story.header}</h1>
           </Link>
+            <h1 className="item-story-header">{story.header}</h1>
+            <h1 className="item-story-body-preview">{story.body}</h1>
 
           <Link to={`/users/${author.id}`}>
             <h1 className="item-story-author">{author.username}</h1>
@@ -24,7 +25,9 @@ const MainIndexItem = ({ story, author }) => {
           readTime={story.readTime}></MainIndexItemInfo>
       </div>
       <div className="main-index-item-image">
-        <img src={story.image_url} alt="storyImageurl"></img>
+        <Link to={`/stories/${story.id}`}>
+          <img src={story.image_url} alt="storyImageurl"></img>
+        </Link>
       </div>
     </div>
   )

@@ -1,0 +1,107 @@
+.story-form-container {
+  width: 700px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.story-form-author-container {
+  margin-top: 50px;
+  display: flex;
+  margin-bottom: 50px;
+  justify-content: flex-start;
+}
+
+.header-image {
+  max-width: 50px;
+  max-height: 50px;
+  overflow: hidden;
+  margin-right: 20px;
+  border-radius: 100%;
+}
+
+.story-form-author-username {
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(0,0,0,0.8);
+}
+
+.story-form-author-biography {
+  font-size: 14px;
+  color: rgba(0,0,0,0.7);
+}
+
+.story-form-author-draft {
+  font-size: 16px;
+  color: rgba(0,0,0,0.6);
+}
+
+.story-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-form-title {
+  font-size: 30px;
+
+  width: 90%;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.story-form-title::placeholder {
+  font-weight: 700;
+  color: rgba(0,0,0,0.5);
+}
+
+.story-form-header {
+  font-size: 20px;
+
+  width: 90%;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.story-form-header::placeholder {
+  font-weight: 500;
+  color: rgba(0,0,0,0.5);
+}
+
+.story-form-body {
+  min-height: 250px;
+  font-size: 16px;
+
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.story-form-body::placeholder {
+  font-weight: 300;
+  color: rgba(0,0,0,0.5);
+}
+
+.story-form-button {
+  align-self: flex-end;
+
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0,0,0,0.8);
+
+  border-radius: 4px;
+  opacity: 0.8;
+  // position: relative;
+  // margin-right: 30px;
+}
+
+.story-form-button:hover {
+  opacity: 1;
+  // border:1px solid #03a87c;
+}
+
+.story-form-button:active{
+  transform: scale(1.1);
+}

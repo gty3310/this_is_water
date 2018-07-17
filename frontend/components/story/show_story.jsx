@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import UserItem from './user_item';
 import StoryResponses from '../response/story_responses';
@@ -38,7 +38,7 @@ class ShowStory extends React.Component {
         </h3>
 
         {sections}
-        
+
         <ClapButton
           content={this.props.story}
           type="Story"></ClapButton>

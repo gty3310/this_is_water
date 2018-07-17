@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class StoryForm extends React.Component {
   constructor(props) {
@@ -36,10 +36,16 @@ class StoryForm extends React.Component {
 
         <div className="story-form-author-container">
 
+          <Link to={`/users/${currentUser.id}`}>
           <img className="header-image" src={currentUser.image_url} alt="current_user_avatar"></img>
+          </Link>
+
 
           <div className="story-form-author-info">
+            <Link to={`/users/${currentUser.id}`}>
             <p className="story-form-author-username">{currentUser.username}</p>
+            </Link>
+            <p className="story-form-author-biography">{currentUser.biography}</p>
             <p className="story-form-author-draft">Draft</p>
           </div>
 
@@ -61,12 +67,12 @@ class StoryForm extends React.Component {
             placeholder="Header"
           ></input>
 
-          <input className="story-form-body"
+        <textarea className="story-form-body"
             type="text"
             value={this.state.body}
             onChange={this.update('body')}
             placeholder="Body"
-          ></input>
+          ></textarea>
 
           <input className="story-form-button"
             type="submit"

@@ -1,0 +1,29 @@
+.story {
+  width: 700px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.story-title {
+  margin-top: 30px;
+
+  font-weight: 700;
+  font-size: 30px;
+  color: rgba(0,0,0,0.8);
+}
+
+.story-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  font-weight: 400;
+  font-size: 24px;
+  color: rgba(0,0,0,0.6);
+}
+
+.story-body {
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  font-size: 16px;
+}

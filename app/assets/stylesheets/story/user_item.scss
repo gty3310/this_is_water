@@ -1,0 +1,67 @@
+.user-item {
+  margin-top: 25px;
+  display: flex;
+}
+
+.user-item-image {
+  max-height: 50px;
+  max-width: 50px;
+  overflow: hidden;
+  margin-right: 20px;
+  border-radius: 100%;
+}
+
+.user-item-info {
+
+}
+
+.user-item-info-container {
+  display: flex;
+}
+
+.follow-button {
+  margin-left: 10px;
+
+  font-size: 15px;
+  color: #03a87c;
+  border: 1px solid #03a87c;
+  border-radius: 4px;
+  padding: 3px 5px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.follow-button:hover {
+  opacity: 1;
+}
+
+.follow-button:active{
+  transform: scale(1.1);
+}
+
+.follow-button-following {
+  background-color: #03a87c;
+
+  margin-left: 10px;
+
+  font-size: 15px;
+  color: white;
+  border: 1px solid #03a87c;
+  border-radius: 4px;
+  padding: 3px 5px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.follow-button-following:hover {
+  opacity: 1;
+}
+
+.follow-button-following:active {
+  transform: scale(1.1);
+}
+
+.user-item-info-biography {
+  font-size: 14px;
+  color: rgba(0,0,0,0.7);
+}
