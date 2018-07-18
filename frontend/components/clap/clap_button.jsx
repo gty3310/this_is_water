@@ -39,7 +39,7 @@ class ClapButton extends React.Component {
 
       <button className="clap-button"
         onClick={this.addToCount}>
-        <img alt="clapButtonImg"></img>
+        <img src={window.clap_button} alt="clapButtonImg"></img>
       </button>
 
       <p className="clap-total">

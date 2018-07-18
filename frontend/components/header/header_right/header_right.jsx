@@ -19,7 +19,11 @@ const HeaderRight = ({ currentUser, logout, openModal, demoLogin }) => {
 
       <div className="profile-button">
         {/*}<p>Profile Button</p>*/}
-        <Link to={`/users/${currentUser.id}`}>Profile</Link>
+        <Link to={`/users/${currentUser.id}`}>
+          <img className="profile-button-image"src={currentUser.avatar} alt="profileAvatar"></img>
+          {/*Profile*/}
+          {/*<img src={currentUser.avatar} alt="profileAvatar"></img>*/}
+        </Link>
       </div>
 
     </div>

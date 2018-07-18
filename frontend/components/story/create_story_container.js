@@ -13,6 +13,8 @@ const mapStateToProps = state => {
       title: '',
       header: '',
       body: '',
+      photo: null,
+      photoUrl: null
     },
   };
 };

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { receiveSessionErrors,login } from '../../../actions/session_actions';
+import { receiveSessionErrors, demoLogin } from '../../../actions/session_actions';
 import { openModal, closeModal } from '../../../actions/modal_actions';
 
 import SessionForm from './session_form';
@@ -17,7 +17,7 @@ const mapStateToProps = ({ ui: {errors} }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (user) => dispatch(login(user)),
+    demoLogin: () => dispatch(demoLogin()),
     processForm: (user) => dispatch(login(user)),
     otherForm: (
       <button className="alternateForm-button" onClick={() => dispatch(openModal('signup'))}>Create an account instead.</button>

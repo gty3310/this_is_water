@@ -18,18 +18,44 @@ class StoryForm extends React.Component {
   }
 
   handleSubmit(e) {
+    // e.preventDefault();
+    //
+    // const story = Object.assign({}, this.state);
+    //
+    // this.props.submitAction(story).then(
+    //   success => this.props.history.push('/'),
+    //   failure => console.log(failure)
+    // );
+
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("story[title]", this.state.title);
+    formData.append("story[header]", this.state.header);
+    formData.append("story[body]", this.state.body);
+    if (this.state.photo !== null) {
+      formData.append("story[photo]", this.state.photo);
+    }
 
-    const story = Object.assign({}, this.state);
-
-    this.props.submitAction(story).then(
+    this.props.submitAction(formData).then(
       success => this.props.history.push('/'),
       failure => console.log(failure)
     );
   }
 
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({photo: file, photoUrl: fileReader.result});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   render() {
     const currentUser = this.props.currentUser;
+    const preview = this.state.photoUrl ? <img className="image-preview" src={this.state.photoUrl}></img> : null;
 
     return (
       <div className="story-form-container">
@@ -37,7 +63,7 @@ class StoryForm extends React.Component {
         <div className="story-form-author-container">
 
           <Link to={`/users/${currentUser.id}`}>
-          <img className="header-image" src={currentUser.image_url} alt="current_user_avatar"></img>
+          <img className="header-image" src={currentUser.avatar} alt="current_user_avatar"></img>
           </Link>
 
 
@@ -48,6 +74,7 @@ class StoryForm extends React.Component {
             <p className="story-form-author-biography">{currentUser.biography}</p>
             <p className="story-form-author-draft">Draft</p>
           </div>
+
 
         </div>
 
@@ -73,6 +100,12 @@ class StoryForm extends React.Component {
             onChange={this.update('body')}
             placeholder="Body"
           ></textarea>
+
+          <input type="file"
+            className="modal-add-avatar"
+            onChange={this.handleFile.bind(this)}></input>
+          <h3 className="image-preview-header">Image Preview</h3>
+          {preview}
 
           <input className="story-form-button"
             type="submit"

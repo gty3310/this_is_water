@@ -31,7 +31,7 @@ class UserItem extends React.Component {
     return (
       <div className="user-item">
         <Link  to={`/users/${this.props.user.id}`}>
-          <img className="user-item-image" src={this.props.user.image_url} alt="user_avatar"></img>
+          <img className="user-item-image" src={this.props.user.avatar} alt="user_avatar"></img>
         </Link>
         <div className="user-item-info">
           <div className="user-item-info-container">

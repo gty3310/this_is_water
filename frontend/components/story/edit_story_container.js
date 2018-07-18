@@ -9,8 +9,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     type: 'Edit',
     currentUser: currentUser(state),
-    // This might not be right.  
-    story: state.entities.stories[id] || {title: '', header: '', body: ''},
+    // This might not be right.
+    story: state.entities.stories[id] || {title: '', header: '', body: '', photo: null},
   };
 };
 

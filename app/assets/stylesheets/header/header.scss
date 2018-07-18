@@ -72,10 +72,19 @@
 }
 
 .profile-button {
-  color: #03a87c;
-  border:1px solid #03a87c;
-  border-radius: 4px;
-  font-size: 12px;
-  color: #03a87c;
-  padding: 5px 10px;
+  // color: #03a87c;
+  // border:1px solid #03a87c;
+  // border-radius: 4px;
+  // font-size: 12px;
+  // color: #03a87c;
+  // padding: 5px 10px;
+
+}
+
+.profile-button-image {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  margin-right: 20px;
+  border-radius: 100%;
 }

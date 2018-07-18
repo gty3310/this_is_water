@@ -7,7 +7,6 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  image_url       :string
 #  biography       :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -20,11 +19,26 @@ class User < ApplicationRecord
   validates :username, :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
+
   # validates :biography, length: { maximum: 160 }
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :ensure_user_avatar
+
+  # validate :ensure_avatar
+  #
+  #
+  # def ensure_avatar
+  #   unless self.avatar.attached?
+  #     errors[:avatar] << "Must be attached"
+  #   end
+  # end
+
+
+
 
   #Associations
+
+  has_one_attached :avatar
 
   has_many :authored_stories,
   primary_key: :id,
@@ -93,6 +107,10 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
+  end
+
+  def ensure_user_avatar
+    self.avatar
   end
 
 end

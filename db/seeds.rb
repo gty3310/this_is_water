@@ -18,8 +18,9 @@ demoUser = User.new({
   email: "guest@thisiswater.com",
   password:"password",
   biography: "This is a guest account meant to demonstrate features.  For any issues please notify Andrew",
-  image_url: ""
   })
+
+demoUser.avatar.attach(io: File.open('app/assets/images/user_seeds/mbappe.jpeg'), filename: 'andrew.jpeg')
 
 demoUser.save!
 
@@ -28,8 +29,9 @@ andrew = User.new({
   email: "andrewdong1994@gmail.com",
   password:"password",
   biography: "Rock climber, software developer, ",
-  image_url: ""
   })
+
+andrew.avatar.attach(io: File.open('app/assets/images/user_seeds/andrew.jpg'), filename: 'andrew.jpg')
 
 andrew.save!
 
@@ -38,8 +40,10 @@ julia = User.new({
   email: "juliajconn@equinox.com",
   password:"password",
   biography: "Recently graduated Hunter College student in physical therapy, serious volleyball player",
-  image_url: ""
   })
+
+julia.avatar.attach(io: File.open('app/assets/images/user_seeds/julia.jpg'), filename: 'julia.jpg')
+
 
 julia.save!
 
@@ -48,8 +52,10 @@ nick = User.new({
   email: "nickmastrangelo@uhartford.edu",
   password:"password",
   biography: "Serious moviepass user",
-  image_url: ""
   })
+
+nick.avatar.attach(io: File.open('app/assets/images/user_seeds/nick.jpg'), filename: 'nick.jpg')
+
 
 nick.save!
 
@@ -58,8 +64,9 @@ robbie = User.new({
   email: "robbiesanders@sdsu.edu",
   password:"password",
   biography: "Radiohead fan, quant marketing professor at SDSU",
-  image_url: ""
   })
+
+robbie.avatar.attach(io: File.open('app/assets/images/user_seeds/robbie.jpg'), filename: 'robbie.jpg')
 
 robbie.save!
 
@@ -70,6 +77,8 @@ story1 = Story.new({
   author_id: robbie.id,
   })
 
+story1.photo.attach(io: File.open('app/assets/images/story_seeds/story1.png'), filename: 'story1.png')
+
 story1.save!
 
 story2 = Story.new({
@@ -78,6 +87,8 @@ story2 = Story.new({
   body: "#{Faker::Hipster.paragraph_by_chars(300)} \n #{Faker::Hipster.paragraph_by_chars(300)} \n #{Faker::Hipster.paragraph_by_chars(300)}",
   author_id: nick.id,
   })
+
+story2.photo.attach(io: File.open('app/assets/images/story_seeds/story2.jpg'), filename: 'story2.jpg')
 
 story2.save!
 
@@ -88,6 +99,8 @@ story3 = Story.new({
   author_id: nick.id,
   })
 
+story3.photo.attach(io: File.open('app/assets/images/story_seeds/story3.jpg'), filename: 'story3.jpg')
+
 story3.save!
 
 story4 = Story.new({
@@ -96,5 +109,7 @@ story4 = Story.new({
   body: "#{Faker::Hipster.paragraph_by_chars(300)} \n #{Faker::Hipster.paragraph_by_chars(300)} \n #{Faker::Hipster.paragraph_by_chars(300)}",
   author_id: julia.id,
   })
+
+story4.photo.attach(io: File.open('app/assets/images/story_seeds/story4.jpg'), filename: 'story4.jpg')
 
 story4.save!

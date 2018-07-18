@@ -7,7 +7,9 @@ class SessionForm extends React.Component {
     this.state = {
       email: '',
       username: '',
-      password: ''
+      password: '',
+      avatar: null,
+      avatarUrl: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,8 +31,9 @@ class SessionForm extends React.Component {
       });
     } else {
       if( passwordIdx === passwordArr.length) {
-        submit.click();
-        return;
+        this.props.demoLogin().then(this.props.closeModal);
+        // submit.click();
+        // return;
       }
 
       let string = this.state.password + passwordArr[passwordIdx];
@@ -60,7 +63,7 @@ class SessionForm extends React.Component {
       username: 'Guest',
       password: 'password'
     });
-    setTimeout(() => {this.props.login(this.state).then(this.props.closeModal);}, 1000);
+    setTimeout(() => {this.props.demoLogin().then(this.props.closeModal);}, 1000);
   }
 
   componentWillUnmount() {
@@ -75,8 +78,18 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(this.props.closeModal);
+    const formData = new FormData();
+    formData.append("user[email]", this.state.email);
+    formData.append(`user[username]`, this.state.username);
+    formData.append(`user[password]`, this.state.password);
+    if (this.state.avatar !== null) {
+      formData.append(`user[avatar]`, this.state.avatar);
+    }
+
+
+    // const user = Object.assign({}, this.state);
+
+    this.props.processForm(formData).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -91,7 +104,20 @@ class SessionForm extends React.Component {
     );
   }
 
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({avatar: file, avatarUrl: fileReader.result});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   render() {
+      const preview = this.state.avatarUrl ? <img className="image-preview" src={this.state.avatarUrl}></img> : null;
+
       if (this.props.formType === 'login') {
         return (
           <div className="modal-content">
@@ -174,6 +200,11 @@ class SessionForm extends React.Component {
                           placeholder="password"
                         />
                   <br></br>
+                  <input type="file"
+                    className="modal-add-avatar"
+                    onChange={this.handleFile.bind(this)}></input>
+                  <h3 className="image-preview-header">Image Preview</h3>
+                    {preview}
                   <input id="session-submit-button" className="modal-inputSubmit-button"
                     type="submit"
                     value="Join" />

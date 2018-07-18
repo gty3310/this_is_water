@@ -3,8 +3,6 @@ class Api::StoriesController < ApplicationController
   before_action :require_logged_in, only: [:create, :create, :update, :destroy]
 
   def index
-
-
     @stories = Story.all.includes(:author)
 
     render :index
@@ -62,6 +60,6 @@ class Api::StoriesController < ApplicationController
   private
 
   def story_params
-    params.permit(:title, :header, :body, :image_url, :video_url)
+    params.require(:story).permit(:title, :header, :body, :photo)
   end
 end

@@ -12,7 +12,7 @@ const ResponseIndexItem = ({ response, responder}) => {
     <div className="response-index-item">
       <div className="response-index-author-index">
         <Link to={`/users/${responder.id}`}>
-        <img className="response-index-author-image" src={responder.image_url} alt="responderAvatar"></img>
+        <img className="response-index-author-image" src={responder.avatar} alt="responderAvatar"></img>
         </Link>
         <div className="story-index-author-info">
           <Link to={`/users/${responder.id}`}>

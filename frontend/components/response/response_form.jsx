@@ -44,7 +44,7 @@ class ResponseForm extends React.Component {
       <form className="response-form" onSubmit={this.handleSubmit}>
         <div className="response-form-author-container">
           <Link className="response-author-image" to={`/users/${this.props.currentUser.id}`}>
-          <img className="response-author-image" src={this.props.currentUser.image_url} alt="currentUseravatar"></img>
+          <img className="response-author-image" src={this.props.currentUser.avatar} alt="currentUseravatar"></img>
           </Link>
 
           <Link className="response-author-username" to={`/users/${this.props.currentUser.id}`}>

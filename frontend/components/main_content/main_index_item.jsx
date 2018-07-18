@@ -26,7 +26,7 @@ const MainIndexItem = ({ story, author }) => {
       </div>
       <div className="main-index-item-image">
         <Link to={`/stories/${story.id}`}>
-          <img src={story.image_url} alt="storyImageurl"></img>
+          <img src={story.photo} alt="storyImageurl"></img>
         </Link>
       </div>
     </div>
