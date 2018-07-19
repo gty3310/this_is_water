@@ -43,26 +43,30 @@
   color: black;
 }
 
+.modal-close:active {
+  transform: scale(1.1);
+}
+
 .modal-content-container {
-  top: 30px;
-  position: relative;
   width: 300px;
+  height: 100%;
   margin: 0 auto;
-  align-items: center;
-  position: relative;
+  align-items:center ;
+  justify-content: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .modal-form-title {
   font-weight: 300;
   font-size: 28px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .modal-form-subtitle {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .modal-form-container {
@@ -70,43 +74,74 @@
 
 .modal-form-inputs {
    display: flex;
-   justify-content: center;
    flex-direction: column;
    align-items: center;
 }
 
 .modal-input {
   text-align: center;
-  width: 90%;
   height: 25px;
-  background: white;
-  padding: 0px 5px;
+  padding: 0 5px;
+  margin: 5px 0;
+  border-radius: 4px;
+  background-color: white;
 }
 
 .modal-input::placeholder {
   font-size: 14px;
 }
 
-.alternateForm-button {
-  margin: 0 auto;
-  padding: 5px 10px;
+.modal-add-avatar {
+  margin-left: 75px;
+  height: 25px;
+  margin-top: 10px;
 }
 
-.alternateForm-button:hover {
-  color: gray;
+.image-preview {
+  // float: right;
+  position: absolute;
+  right: -10px;
+  max-height: 200px;
+  max-width: 200px;
 }
 
 .modal-inputSubmit-button {
+  font-weight: 400;
+  font-size: 20px;
   padding: 5px;
   border-radius: 4px;
 }
 
 .modal-inputSubmit-button:hover {
-  color: gray;
+  opacity: 0.8;
+}
+.modal-inputSubmit-button:active {
+  transform: scale(1.1);
 }
 
-.modal-altForm-button {
+.modal-errors {
+  list-style: none;
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+
+.alternateForm-button {
   margin: 0 auto;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.alternateForm-button:hover {
+  opacity: 0.8;
+}
+
+.alternateForm-button:active {
+  transform: scale(0.9);
+}
+
+
+.modal-altForm-button {
 }
 
 
@@ -116,8 +151,12 @@
   border-radius: 4px;
 }
 
-.modal-demo-login:hover {
-  color: gray;
+.modal-demo-button:hover {
+  opacity: 0.8;
+}
+
+.modal-demo-button:active {
+  transform:scale(1.5);
 }
 
 .modal-terms {

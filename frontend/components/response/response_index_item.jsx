@@ -34,6 +34,7 @@ const ResponseIndexItem = ({ response, responder}) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  // debugger
   return {
     responder: responder(state, ownProps.response)
   };

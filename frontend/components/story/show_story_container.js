@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchStory } from '../../actions/story_actions';
 import { followUser, unfollowUser } from '../../actions/follow_actions';
 import { responsesForStory } from '../../reducers/selectors';
+// import { fetchAllUsers } from '../../actions/user_actions';
 
 import ShowStory from './show_story';
 
@@ -18,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
       responses = responsesForStory(state, story.responses_array);
     }
   }
-  // 
+  //
 
   return {
     story: story,
@@ -29,6 +30,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    // fetchAllUsers: () => dispatch(fetchAllUsers()),
     fetchStory: id => dispatch(fetchStory(id)),
     followUser: id => dispatch(followUser(id)),
     unfollowUser: id => dispatch(unfollowUser(id))

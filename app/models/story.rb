@@ -49,7 +49,7 @@ class Story < ApplicationRecord
 
   def read_time
     word_count = self.body.split(' ').length
-    minutes = word_count / 30
+    minutes = word_count / 150
     if minutes < 1
       "< 1 minute read"
     else

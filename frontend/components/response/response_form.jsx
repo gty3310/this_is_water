@@ -36,7 +36,7 @@ class ResponseForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.createResponse(this.state);
+    this.props.createResponse(this.state).then(this.setState({body: ''}));
   }
 
   render() {

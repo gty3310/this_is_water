@@ -3,11 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 800px;
+  width: 1200px;
   margin: 0 auto;
   font-family: medium-content-sans-serif-font;
-  padding-bottom: 10px;
-  padding-top: 5px;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
 
@@ -16,7 +16,7 @@
 
 
 .headerLeft {
-  font-size: 12px;
+  font-size: 16px;
   color: gray;
 }
 
@@ -29,7 +29,7 @@
 .headerMiddle{
   position: absolute;
   left: 45%;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
 }
 
@@ -41,22 +41,39 @@
 
 
 .headerRight-loggedOutDisplay-container {
-  font-size: 12px;
+  font-size: 16px;
   color: #03a87c;
 }
 
-.signIn-button {
-
+.signIn-button:hover {
+  opacity: 0.8;
 }
 
-.signUp-button {
+.signIn-button:active {
+  transform: scale(1.1);
+}
 
+.signUp-button:hover {
+  opacity: 0.8;
+}
+
+.signUp-button:active {
+  transform: scale(1.1);
 }
 
 .takeATour-button {
+  font-weight: 700;
   border:1px solid #03a87c;
   padding: 5px 10px;
   border-radius: 4px;
+}
+
+.takeATourButton:hover {
+  opacity: 0.8;
+}
+
+.takeATourButton:active {
+  transform: scale(1.1);
 }
 
 .headerRight-loggedInDisplay-container {
@@ -67,8 +84,16 @@
 }
 
 .logOut-button {
-  font-size: 12px;
+  font-size: 16px;
   padding: 5px 10px;
+}
+
+.logOut-button:hover {
+  opacity: 0.8;
+}
+
+.logOut-button:active {
+  transform: scale(1.1);
 }
 
 .profile-button {
@@ -82,8 +107,8 @@
 }
 
 .profile-button-image {
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   overflow: hidden;
   margin-right: 20px;
   border-radius: 100%;

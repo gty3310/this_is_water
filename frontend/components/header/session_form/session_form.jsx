@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
       this.setState({email: string}, () => {
         window.setTimeout(() => {
           this.loginGuestLive(emailArr, passwordArr, ++emailIdx, passwordIdx, submit);
-        }, 50);
+        }, 100);
       });
     } else {
       if( passwordIdx === passwordArr.length) {
@@ -40,13 +40,13 @@ class SessionForm extends React.Component {
       this.setState({password: string}, () => {
         window.setTimeout(() => {
           this.loginGuestLive(emailArr, passwordArr, emailIdx, ++passwordIdx, submit);
-        }, 50);
+        }, 100);
       });
     }
   }
 
   demoLoginLive() {
-    const emailArr = "guest@thisiswater.com";
+    const emailArr = "Thanks Simcha <3";
     const passwordArr = "password";
     const submit = document.getElementById("session-submit-button");
 
@@ -59,8 +59,8 @@ class SessionForm extends React.Component {
 
   demoLoginFlash(e) {
     this.setState({
-      email: 'guest@thisiswater.com',
-      username: 'Guest',
+      email: 'andrewdong@uchicago',
+      username: 'Andrew Dong',
       password: 'password'
     });
     setTimeout(() => {this.props.demoLogin().then(this.props.closeModal);}, 1000);
@@ -94,7 +94,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="modal-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -125,31 +125,26 @@ class SessionForm extends React.Component {
 
             <div className="modal-content-container">
                   <h1 className="modal-form-title">Welcome back.</h1>
-                  <br></br>
                   <p className="modal-form-subtitle">
                     Sign in to write stories, follow your favorite authors and applaud those you love.
                   </p>
-                  <br></br>
                   {this.renderErrors()}
                   <form onSubmit={this.handleSubmit} className="modal-form-container">
-                  <div className="modal-form-inputs">
-                    <br></br>
+                    <div className="modal-form-inputs">
                       <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             className="modal-input"
                             placeholder="email"
                           />
-                    <br></br>
                       <input type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             className="modal-input"
                             placeholder="password"
                           />
-                    <br></br>
                     <input id="session-submit-button" className="modal-inputSubmit-button" type="submit" value="Continue" />
-                  </div>
+                    </div>
                 </form>
                 <div className="modal-altForm-button">
                   {this.props.otherForm}
@@ -170,40 +165,33 @@ class SessionForm extends React.Component {
 
             <div className="modal-content-container">
                 <h1 className="modal-form-title">Join ThisIsWater</h1>
-                <br></br>
                 <p className="modal-form-subtitle">
                   Create an account to write stories, follow your favorite authors and applaud those you love.
                 </p>
-                <br></br>
                 {this.renderErrors()}
                 <form onSubmit={this.handleSubmit} className="modal-form-container">
                 <div className="modal-form-inputs">
-                  <br></br>
                     <input type="text"
                           value={this.state.email}
                           onChange={this.update('email')}
                           className="modal-input"
                           placeholder="email"
                         />
-                  <br></br>
                     <input type="text"
                           value={this.state.username}
                           onChange={this.update('username')}
                           className="modal-input"
                           placeholder="username"
                         />
-                  <br></br>
                     <input type="password"
                           value={this.state.password}
                           onChange={this.update('password')}
                           className="modal-input"
                           placeholder="password"
                         />
-                  <br></br>
                   <input type="file"
                     className="modal-add-avatar"
                     onChange={this.handleFile.bind(this)}></input>
-                  <h3 className="image-preview-header">Image Preview</h3>
                     {preview}
                   <input id="session-submit-button" className="modal-inputSubmit-button"
                     type="submit"

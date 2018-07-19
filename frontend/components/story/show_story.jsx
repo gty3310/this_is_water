@@ -8,6 +8,9 @@ import ClapButton from '../clap/clap_button';
 class ShowStory extends React.Component {
   componentDidMount() {
     this.props.fetchStory(this.props.match.params.id);
+    // .then(
+    //   this.props.fetchAllUsers
+    // );
   }
 
   render() {
@@ -36,6 +39,8 @@ class ShowStory extends React.Component {
         <h3 className="story-header">
           {this.props.story.header}
         </h3>
+
+        <img className="story-photo" src={this.props.story.photo} alt="storyImageurl"></img>
 
         {sections}
 
