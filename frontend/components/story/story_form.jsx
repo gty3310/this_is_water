@@ -55,7 +55,7 @@ class StoryForm extends React.Component {
 
   render() {
     const currentUser = this.props.currentUser;
-    const preview = this.state.photoUrl ? <img className="image-preview" src={this.state.photoUrl}></img> : null;
+    const preview = this.state.photoUrl ? <img className="story-form-image-preview" src={this.state.photoUrl}></img> : null;
 
     return (
       <div className="story-form-container">
@@ -104,7 +104,7 @@ class StoryForm extends React.Component {
           <input type="file"
             className="modal-add-avatar"
             onChange={this.handleFile.bind(this)}></input>
-          <h3 className="image-preview-header">Image Preview</h3>
+
           {preview}
 
           <input className="story-form-button"

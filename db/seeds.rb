@@ -34,32 +34,15 @@ pic2 = StringIO.new(uri2.read)
 
 demoUser.avatar.attach(io: File.open('app/assets/images/user_seeds/andrew.jpg'), filename: 'andrew.jpg')
 
-
-
 demoUser.save!
-
-
 
 puts ("Successfully Seeded DemoUser")
 
-# andrew = User.new({
-#   username: "Andrew",
-#   email: "andrewdong1994@gmail.com",
-#   password:"password",
-#   biography: "Rock climber, software developer, ",
-#   })
-#
-# andrew.avatar.attach(io: File.open('app/assets/images/user_seeds/andrew.jpg'), filename: 'andrew.jpg')
-#
-# andrew.save!
-
-
-
 julia = User.new({
-  username: "Julia",
+  username: "Julia Connoly",
   email: "juliajconn@equinox.com",
   password:"password",
-  biography: "Recently graduated Hunter physical therapist, lovely volleyball player",
+  biography: "Recently graduated Hunter physical therapist, heartfelt volleyball coach",
   })
 
 julia.avatar.attach(io: File.open('app/assets/images/user_seeds/julia.jpg'), filename: 'julia.jpg')
@@ -68,7 +51,7 @@ julia.avatar.attach(io: File.open('app/assets/images/user_seeds/julia.jpg'), fil
 julia.save!
 
 nick = User.new({
-  username: "Nick",
+  username: "Nick Mastrangelo",
   email: "nickmastrangelo@uhartford.edu",
   password:"password",
   biography: "Serious moviepass user",
@@ -80,10 +63,10 @@ nick.avatar.attach(io: File.open('app/assets/images/user_seeds/nick.jpg'), filen
 nick.save!
 
 robbie = User.new({
-  username: "Robbie",
+  username: "Robbie Sanders",
   email: "robbiesanders@sdsu.edu",
   password:"password",
-  biography: "Radiohead fan, quant marketing professor at SDSU",
+  biography: "Radiohead fan first, quant marketing professor second",
   })
 
 robbie.avatar.attach(io: File.open('app/assets/images/user_seeds/robbie.jpg'), filename: 'robbie.jpg')
@@ -91,16 +74,28 @@ robbie.avatar.attach(io: File.open('app/assets/images/user_seeds/robbie.jpg'), f
 robbie.save!
 
 paragraph_length = rand(10..30)
-paragraph_number = rand(3..25)
+paragraph_number = rand(3..15)
 body = ""
 
 (paragraph_number).times do |i|
   body += (Faker::Hipster.paragraphs(paragraph_length).join(" ") + "\n")
   end
 
+story4 = Story.new({
+  title: "6 Days of Fasting",
+  header: "Is it good for you?  I'm not sure!",
+  body: body,
+  author_id: julia.id,
+  })
+
+story4.photo.attach(io: File.open('app/assets/images/story_seeds/story4.jpg'), filename: 'story4.jpg')
+
+story4.save!
+
+
 story1 = Story.new({
   title: "Dynamic Pricing on Perishable Goods",
-  header: "UChicago Dissertation produced using data from grocery-chain Marianos",
+  header: "Comparing Alternative Models of Heterogeneity in Consumer Choice",
   body: body,
   author_id: robbie.id,
   })
@@ -131,29 +126,12 @@ story3.photo.attach(io: File.open('app/assets/images/story_seeds/story3.jpg'), f
 
 story3.save!
 
-story4 = Story.new({
-  title: "6 Days of Fasting",
-  header: "Man I could go for some ramen",
-  body: body,
-  author_id: julia.id,
-  })
-
-story4.photo.attach(io: File.open('app/assets/images/story_seeds/story4.jpg'), filename: 'story4.jpg')
-
-story4.save!
-
 puts ('Successfully Seeded Friends')
 
-5.times do |i|
+10.times do |i|
   lname = Faker::Name.last_name
   username = Faker::Name.first_name + " " + lname
   email = lname + "@thisiswater.com"
-
-
-  # all_user = User.all.map{|user| user.username}
-  # debugger
-  # while(all_user.include?(username))
-  # end
 
   user = User.new(
     username: username,
@@ -176,9 +154,9 @@ end
 
 puts("Successfully Seeded Users")
 
-3.times do |i|
-  paragraph_length = rand(25..50)
-  paragraph_number = rand(3..25)
+50.times do |i|
+  paragraph_length = rand(10..30)
+  paragraph_number = rand(3..15)
   body = ""
 
   (paragraph_number).times do |i|
@@ -187,8 +165,8 @@ puts("Successfully Seeded Users")
 
   story = Story.new(
     author_id: User.all.sample.id,
-    title: Faker::Movie.quote,
-    header: Faker::TwinPeaks.quote,
+    title: Faker::Hipster.sentences(1).join(""),
+    header: Faker::Movie.quote,
     body: body
   )
 
@@ -204,7 +182,7 @@ end
 
 puts("Successfully Seeded Stories")
 
-# 20.times do |i|
+# 10.times do |i|
 #     # paragraph_length = rand(5..30)
 #     # body: Faker::Hipster.paragraphs(paragraph_length).join(" "),
 #
@@ -212,13 +190,13 @@ puts("Successfully Seeded Stories")
 #     story_id = Story.all.sample.id
 #     responder_id = User.all.sample.id
 #
-#     response = Response.new(
-#       body: body,
-#       story_id: story_id,
-#       responder_id: responder_id
-#     )
-#
-#     redo unless response.valid?
+#     # response = Response.new(
+#     #   body: body,
+#     #   story_id: story_id,
+#     #   responder_id: responder_id
+#     # )
+#     #
+#     # redo unless response.valid?
 #
 #     Response.create!(
 #       body: body,
@@ -229,7 +207,7 @@ puts("Successfully Seeded Stories")
 #
 # puts("Successfully Seeded Responses")
 
-# 3.times do |i|
+# 10.times do |i|
 #   follower_id = User.all.sample.id
 #   followed_id = User.all.sample.id
 #
@@ -244,26 +222,3 @@ puts("Successfully Seeded Stories")
 # end
 #
 # puts ("Successfully Seeded Follows")
-
-
-
-
-
-
-
-
-
-
-
-
-# demoUser = User.new({
-#   username: "Guest Username",
-#   email: "andrewdong@uchicago.edu",
-#   password:"password",
-#   biography: "This is a guest account meant to demonstrate features.  For any issues please notify Andrew",
-#   })
-#
-# demoUser.avatar.attach(io: File.open('app/assets/images/user_seeds/mbappe.jpeg'), filename: 'andrew.jpeg')
-#
-# demoUser.save!
-#

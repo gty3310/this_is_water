@@ -1,14 +1,15 @@
 .profile-user {
-  width: 700px;
+  width: 800px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 .profile-user-avatar-info-holder {
   display: flex;
-  margin-top: 50px;
+  margin-left: 30px;
   margin-bottom: 50px;
 }
 
@@ -59,8 +60,8 @@
 
 .profile-user-stories {
   // margin-top: 50px;
-  width: 600px;
-  margin:0 auto;
+  // width: 800px;
+  // margin:0 auto;
 }
 
 

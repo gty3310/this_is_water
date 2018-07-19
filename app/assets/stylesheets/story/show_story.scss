@@ -1,5 +1,5 @@
 .story {
-  width: 700px;
+  width: 800px;
   margin: 0 auto;
   justify-content: space-between;
 }
@@ -22,8 +22,16 @@
 }
 
 .story-body {
+  width: 800px;
   margin-top: 15px;
   margin-bottom: 15px;
 
   font-size: 16px;
+}
+
+.story-photo {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 400px;
 }

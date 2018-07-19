@@ -36,6 +36,7 @@ class ShowStory extends React.Component {
           {this.props.story.title}
         </h1>
 
+
         <h3 className="story-header">
           {this.props.story.header}
         </h3>

@@ -1,5 +1,7 @@
 import React from 'react';
 import MainIndexItem from './main_index_item';
+import { Link } from 'react-router-dom';
+
 
 const MainIndex = ({ currentUser, stories }) => {
   const mappedStories = stories.map((story, idx) => {

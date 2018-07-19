@@ -24,11 +24,9 @@ const MainIndexItem = ({ story, author }) => {
           date={story.date}
           readTime={story.readTime}></MainIndexItemInfo>
       </div>
-      <div className="main-index-item-image">
         <Link to={`/stories/${story.id}`}>
-          <img src={story.photo} alt="storyImageurl"></img>
+          <img className="main-index-item-image" src={story.photo} alt="storyImageurl"></img>
         </Link>
-      </div>
     </div>
   )
 }
