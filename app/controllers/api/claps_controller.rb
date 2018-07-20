@@ -8,7 +8,7 @@ class Api::ClapsController < ApplicationController
 
     if @clap
 
-      new_clap_count = params[:clap][:clap_count].to_i + @clap.clap_count
+      new_clap_count = params[:clap][:clap_count].to_i + @clap.clap_count + 1
       # new_clap_count = 50 if new_clap_count > 50
 
       if @clap.update(clap_count: new_clap_count)
