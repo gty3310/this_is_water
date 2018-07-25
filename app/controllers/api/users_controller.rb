@@ -11,6 +11,9 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
+    is_followed = current_user.followed_users.where(id: @user.id)
+    @currentUserFollows= !is_followed.empty?
+
     if @user
       render 'api/users/profile'
     else
