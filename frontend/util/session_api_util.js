@@ -33,7 +33,7 @@ export const demoLogin = () => {
     url: 'api/session',
     data: {
       user: {
-        email: 'andrewdong@uchicago.edu',
+        email: 'guest2018@gmail.com',
         password: 'password'
       }
     }

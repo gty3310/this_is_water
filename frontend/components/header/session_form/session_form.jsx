@@ -32,21 +32,21 @@ class SessionForm extends React.Component {
     } else {
       if( passwordIdx === passwordArr.length) {
         this.props.demoLogin().then(this.props.closeModal);
-        // submit.click();
-        // return;
       }
 
-      let string = this.state.password + passwordArr[passwordIdx];
-      this.setState({password: string}, () => {
-        window.setTimeout(() => {
-          this.loginGuestLive(emailArr, passwordArr, emailIdx, ++passwordIdx, submit);
-        }, 100);
-      });
+      if (passwordIdx < passwordArr.length) {
+        let string = this.state.password + passwordArr[passwordIdx];
+        this.setState({password: string}, () => {
+          window.setTimeout(() => {
+            this.loginGuestLive(emailArr, passwordArr, emailIdx, ++passwordIdx, submit);
+          }, 100);
+        });
+      }
     }
   }
 
   demoLoginLive() {
-    const emailArr = "Thanks Simcha <3";
+    const emailArr = "guest2018@gmail.com";
     const passwordArr = "password";
     const submit = document.getElementById("session-submit-button");
 
@@ -59,8 +59,8 @@ class SessionForm extends React.Component {
 
   demoLoginFlash(e) {
     this.setState({
-      email: 'andrewdong@uchicago',
-      username: 'Andrew Dong',
+      email: 'guest2018@gmail.com',
+      username: 'Guest User',
       password: 'password'
     });
     setTimeout(() => {this.props.demoLogin().then(this.props.closeModal);}, 1000);
@@ -85,9 +85,6 @@ class SessionForm extends React.Component {
     if (this.state.avatar !== null) {
       formData.append(`user[avatar]`, this.state.avatar);
     }
-
-
-    // const user = Object.assign({}, this.state);
 
     this.props.processForm(formData).then(this.props.closeModal);
   }
