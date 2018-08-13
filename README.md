@@ -47,19 +47,18 @@ Some feature highlights of the app are:
 
 <img src="empty_image" height="400" alt="Signup Modal">
 
-
-At the centerpiece of Profound Sound is a recursively rendered binary tree in Canvas, which begins with a single branch length and grows until the deepest branches (those with length < 10) are filled with leaves.  
+Users can sign up and log into ThisIsWater with a modal.  Through the use of protected routes, ThisIsWater reveals
+a login modal whenever an unauthorized user attempts to use the site.  
 
 ```
-  // from tree.js
+  // from main.js
 ```
 
 ### Live Demo Login
 
 <img src="empty_image" height="400" alt="gif of demo login">
 
-
-In order to extract data from its audio file, Profound Sound integrates with Web Audio API.  In the following code snippet we create a media element source and an audio analyzer.  We then proceed to connect the two and create an array of unsigned integers from the frequencyBinCount of the analyzer, which will later be used for visualizations.  
+ThisIsWater includes a guest account and live login
 
 ```
   // from main.js
@@ -72,7 +71,7 @@ In order to extract data from its audio file, Profound Sound integrates with Web
 <img src="empty_image" height="400" alt="Main Feed">
 
 
-To render the dancing sun using canvas, we take the first element the array of unsigned integers from our frequencyData and pass that into an draw function as the parameter for the radius of our sun.  Since we need to clear the canvas upon each re-rendering, we're forced to set the animation on a separate canvas element.  We're also able to dynamically set the hue of the sun.  
+Users can see a list of all stories on the site.  
 
 ```
   // from main.js
@@ -84,7 +83,7 @@ To render the dancing sun using canvas, we take the first element the array of u
 
 <img src="empty_image" height="400" alt="Story Show">
 
-To render the dancing grass we pull a scalable vector graph from the D3 library and pass in our frequency data.  We're able to constantly re-render the chart using request animation frame from Canvas.  The color also adjusts dynamically based on the height of each rectangle in the chart.  
+Users can write and read stories containing images that are stored in AWS s3 cloud through Rails Active Storage
 
 ```
   // from main.js
@@ -95,7 +94,7 @@ To render the dancing grass we pull a scalable vector graph from the D3 library 
 
 <img src="empty_image" height="400" alt="Gif of writing a response">
 
-To render the dancing grass we pull a scalable vector graph from the D3 library and pass in our frequency data.  We're able to constantly re-render the chart using request animation frame from Canvas.  The color also adjusts dynamically based on the height of each rectangle in the chart.  
+Users can respond to stories they find interesting.  
 
 ```
   // from main.js
@@ -106,7 +105,7 @@ To render the dancing grass we pull a scalable vector graph from the D3 library 
 
 <img src="empty_image" height="400" alt="Gif of clapping">
 
-To render the dancing grass we pull a scalable vector graph from the D3 library and pass in our frequency data.  We're able to constantly re-render the chart using request animation frame from Canvas.  The color also adjusts dynamically based on the height of each rectangle in the chart.  
+If a user likes a story or response, they can clap for it.  
 
 ```
   // from main.js
@@ -117,7 +116,7 @@ To render the dancing grass we pull a scalable vector graph from the D3 library 
 
 <img src="empty_image" height="400" alt="Image of Follow Button">
 
-To render the dancing grass we pull a scalable vector graph from the D3 library and pass in our frequency data.  We're able to constantly re-render the chart using request animation frame from Canvas.  The color also adjusts dynamically based on the height of each rectangle in the chart.  
+If a user finds an author they like, they can follow that author.  
 
 ```
   // from main.js
@@ -128,7 +127,7 @@ To render the dancing grass we pull a scalable vector graph from the D3 library 
 
 <img src="empty_image" height="400" alt="User Show">
 
-To render the dancing grass we pull a scalable vector graph from the D3 library and pass in our frequency data.  We're able to constantly re-render the chart using request animation frame from Canvas.  The color also adjusts dynamically based on the height of each rectangle in the chart.  
+Each user has a profile displaying key information about the user along with their authored stories.  
 
 ```
   // from main.js
@@ -139,7 +138,7 @@ To render the dancing grass we pull a scalable vector graph from the D3 library 
 
 <img src="empty_image" height="400" alt="Image of Errors">
 
-To render the dancing grass we pull a scalable vector graph from the D3 library and pass in our frequency data.  We're able to constantly re-render the chart using request animation frame from Canvas.  The color also adjusts dynamically based on the height of each rectangle in the chart.  
+Errors display during authentication to indicate missing or invalid submissions
 
 ```
   // from main.js
@@ -150,5 +149,12 @@ To render the dancing grass we pull a scalable vector graph from the D3 library 
 ## Future Features
 In the future, I plan to add the following features:
 
-* User may add their own songs
-* User may adjust the colors of the tree, the sun and the grass
+* User can update and delete their responses, stories and user information
+* Bookmarks and Tags
+* Loading screen
+* Mobile Friendly
+* Generate stories through AJAX requests to real story APIs
+* Popular, featured and recommended under main feed
+* Rich text editing through Quill Rich Text Editor
+* Ability to search stories and users through PG Search
+* Infinite Scroll
