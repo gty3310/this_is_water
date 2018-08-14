@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import ReactQuill from 'react-quill';
 
 class StoryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.story;
+    this.state.placeholder = "Body";
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleQuill = this.handleQuill.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -18,15 +21,6 @@ class StoryForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // e.preventDefault();
-    //
-    // const story = Object.assign({}, this.state);
-    //
-    // this.props.submitAction(story).then(
-    //   success => this.props.history.push('/'),
-    //   failure => console.log(failure)
-    // );
-
     e.preventDefault();
     const formData = new FormData();
     formData.append("story[title]", this.state.title);
@@ -51,6 +45,10 @@ class StoryForm extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
+  }
+
+  handleQuill(value) {
+    this.setState({ body: value });
   }
 
   render() {
@@ -79,6 +77,7 @@ class StoryForm extends React.Component {
         </div>
 
         <form className="story-form" onSubmit={this.handleSubmit}>
+          <link href={"https://cdn.quilljs.com/1.3.6/quill.snow.css"} rel="stylesheet"/>
 
           <input className="story-form-title"
             type="text"
@@ -94,12 +93,14 @@ class StoryForm extends React.Component {
             placeholder="Header"
           ></input>
 
-        <textarea className="story-form-body"
-            type="text"
+        <ReactQuill className="story-form-body"
+            theme="snow"
             value={this.state.body}
-            onChange={this.update('body')}
-            placeholder="Body"
-          ></textarea>
+            onChange={this.handleQuill}
+            modules={StoryForm.modules}
+            formats={StoryForm.formats}
+            placeholder={this.state.placeholder}
+          ></ReactQuill>
 
           <input type="file"
             className="modal-add-avatar"
@@ -118,6 +119,29 @@ class StoryForm extends React.Component {
     );
   }
 }
+
+StoryForm.modules = {
+  toolbar: [
+    [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+    [{size: []}],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [{'list': 'ordered'}, {'list': 'bullet'},
+     {'indent': '-1'}, {'indent': '+1'}],
+    ['link', 'image', 'video'],
+    ['clean']
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  }
+};
+
+StoryForm.formats = [
+  'header', 'font', 'size',
+  'bold', 'italic', 'underline', 'strike', 'blockquote',
+  'list', 'bullet', 'indent',
+  'link', 'image', 'video'
+];
 
 export default withRouter(StoryForm);
 

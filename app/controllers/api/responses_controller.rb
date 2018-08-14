@@ -1,13 +1,18 @@
 class Api::ResponsesController < ApplicationController
-  def create
-    @response = Response.new(response_params)
-    @response.responder_id = current_user.id
+  before_action :require_logged_in
 
-    if @response.save
-      render :show
+  def create
+    check_response = response_params[:body]
+    if check_response.delete("<p><br></p>").strip.length == 0
+      render json: ["Response can't be empty"], status: 422
     else
-      
-      render json: @response.errors.full_messages, status: 422
+      @response = Response.new(response_params)
+      @response.responder_id = current_user.id
+      if @response.save
+        render :show
+      else
+        render json: @response.errors.full_messages, status: 422
+      end
     end
   end
 

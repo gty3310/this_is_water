@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactQuill from 'react-quill';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -6,14 +7,14 @@ import { Link } from 'react-router-dom';
 class ResponseForm extends React.Component {
   constructor(props) {
     super(props);
-    // const story = this.props.story || {};
     this.state={
-      // possibly should be passing in ownParams
       story_id: props.story.id,
-      body: ''
+      body: '',
+      placeholder: "Response body"
     };
 
     this.update = this.update.bind(this);
+    this.handleQuill = this.handleQuill.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -33,6 +34,10 @@ class ResponseForm extends React.Component {
     // );
   }
 
+  handleQuill(value) {
+    this.setState({ body: value });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
 
@@ -42,6 +47,7 @@ class ResponseForm extends React.Component {
   render() {
     return (
       <form className="response-form" onSubmit={this.handleSubmit}>
+        <link href={"https://cdn.quilljs.com/1.3.6/quill.snow.css"} rel="stylesheet"/>
         <div className="response-form-author-container">
           <Link className="response-author-image" to={`/users/${this.props.currentUser.id}`}>
           <img className="response-author-image" src={this.props.currentUser.avatar} alt="currentUseravatar"></img>
@@ -52,10 +58,14 @@ class ResponseForm extends React.Component {
           </Link>
         </div>
 
-        <textarea className="response-form-body"
+        <ReactQuill className="response-form-body"
+          theme="snow"
           value={this.state.body}
-          onChange={this.update('body')}
-          placeholder="Response body"></textarea>
+          onChange={this.handleQuill}
+          modules={ResponseForm.modules}
+          formats={ResponseForm.formats}
+          placeholder={this.state.placeholder}>
+        </ReactQuill>
 
         <input className="response-form-button"
           type="submit"
@@ -64,5 +74,28 @@ class ResponseForm extends React.Component {
     );
   }
 }
+
+ResponseForm.modules = {
+  toolbar: [
+    [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+    [{size: []}],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [{'list': 'ordered'}, {'list': 'bullet'},
+     {'indent': '-1'}, {'indent': '+1'}],
+    ['link', 'image', 'video'],
+    ['clean']
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  }
+};
+
+ResponseForm.formats = [
+  'header', 'font', 'size',
+  'bold', 'italic', 'underline', 'strike', 'blockquote',
+  'list', 'bullet', 'indent',
+  'link', 'image', 'video'
+];
 
 export default withRouter(ResponseForm);
