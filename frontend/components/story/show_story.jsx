@@ -8,9 +8,6 @@ import ClapButton from '../clap/clap_button';
 class ShowStory extends React.Component {
   componentDidMount() {
     this.props.fetchStory(this.props.match.params.id);
-    // .then(
-    //   this.props.fetchAllUsers
-    // );
   }
 
   render() {

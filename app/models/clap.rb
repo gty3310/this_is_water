@@ -13,11 +13,7 @@
 
 class Clap < ApplicationRecord
 
-  # Validations
-
   validates :clapper_id, presence: true
-
-  # Associations
 
   belongs_to :user,
   primary_key: :id,

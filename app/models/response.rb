@@ -12,11 +12,7 @@
 
 class Response < ApplicationRecord
 
-  # Validations
-
   validates :body, :story_id, :responder_id, presence: true
-
-  # Associations
 
   belongs_to :responder,
   primary_key: :id,
@@ -30,8 +26,6 @@ class Response < ApplicationRecord
 
   has_many :claps,
   as: :clappable
-
-  # Methods
 
   def date
     monthShort = [

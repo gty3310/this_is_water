@@ -13,22 +13,8 @@
 
 class Story < ApplicationRecord
 
-  # Validations
-
   validates :title, :body, :author_id, presence: true
   validates :title, uniqueness: true
-
-  # validate :ensure_photo
-  #
-  #
-  # def ensure_photo
-  #   unless self.photo.attached?
-  #     errors[:photo] << "Must be attached"
-  #   end
-  # end
-
-
-  # Associations
 
   has_one_attached :photo
 

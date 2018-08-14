@@ -23,15 +23,11 @@ class ResponseForm extends React.Component {
   }
 
   update(field) {
-    //
     return (e) => {
       this.setState({
         [field]: e.target.value
       });
     };
-    // this.setState(
-    //   {body: e.target.value}
-    // );
   }
 
   handleQuill(value) {

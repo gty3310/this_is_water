@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { responder } from '../../reducers/selectors';
 import ClapButton from '../clap/clap_button';
 
-// Should I include a clap or a story?
 const ResponseIndexItem = ({ response, responder}) => {
   return (
     <div className="response-index-item">
@@ -34,7 +33,6 @@ const ResponseIndexItem = ({ response, responder}) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return {
     responder: responder(state, ownProps.response)
   };

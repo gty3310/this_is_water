@@ -7,7 +7,6 @@ import ResponseFormContainer from './response_form_container';
 import ResponseIndex from './response_index';
 
 const StoryResponses = ({ responses, story }) => {
-  // 
   return (
     <div className="story-responses-container">
       <ResponseFormContainer
